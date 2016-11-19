@@ -1,0 +1,46 @@
+.listbox {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+.col-title a {
+	display: block;
+	padding: 7px;
+	text-decoration: none;
+	margin-bottom: 10px;
+}
+#search {
+	display: inline-block;
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+.myUL {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.myUL li a {
+	display: block;
+	border-bottom: solid 1px #ddd;
+	padding: 8px;
+	text-decoration: none;
+	color: #000;
+}
+.myUL li a:hover {
+	background-color: #eee;
+}
+#form {
+	padding: 10px;
+	font-size: 14px;
+}
+#form .row {
+	margin-top: 3px;
+}
+.detail-input {
+	display: inline-block;
+	width: 100%;
+	padding: 3px;
+}
+.detail-label {
+	padding: 3px;
+}
