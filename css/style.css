@@ -4,7 +4,6 @@
 }
 .button {
 	padding: 5px;
-	text-decoration: none;
 	margin-bottom: 13px;
 	background-color: #fff;
 	border: solid 1px #bbb;
@@ -51,9 +50,10 @@
 .detail-text {
 	padding: 3px;
 }
-a.detail-a {
-	padding: 3px;
-	text-decoration: none;
+.detail-button {
+	background-color: #fff;
+	border: none;
+	color: blue;
 }
 .select {
 	padding: 5px;
