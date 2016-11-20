@@ -1,18 +1,18 @@
 <?php
     namespace core\data\model;
     use \PDO;
-    
+
 	class PDOData {
-		private $db = null; 
-		
+		private $db = null;
+
 		public function __construct() {
 			try {
 			    /* Ket noi CSDL */
 				$this->db = new PDO("mysql:host=localhost;dbname=personalcontact;", "root", "");
 			} catch(PDOException $ex) { echo $ex->getMessage();	}
 		}
-		
-		
+
+
 		public function __destruct() {
 		    /** Dong ket noi */
 			try {
@@ -26,19 +26,19 @@
 		* return: mang cac ban ghi
 		*/
 		public function doQuery($query) {
-			$ret = array(); 
-			
+			$ret = array();
+
 			try {
-				$stmt = $this->db->query($query);  
+				$stmt = $this->db->query($query);
 				if ($stmt) {
 					while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-						$ret[] = $row; 
+						$ret[] = $row;
 					}
-				} 
+				}
 			} catch(PDOException $ex) {	echo $query; }
-			
+
 			return $ret;
-		}	
+		}
 
 		/**
 		* Thuc hien cap nhat
