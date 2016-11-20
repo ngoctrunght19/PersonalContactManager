@@ -2,11 +2,15 @@
 	overflow-x: hidden;
 	overflow-y: scroll;
 }
-.col-title a {
-	display: block;
-	padding: 7px;
+.button {
+	padding: 5px;
 	text-decoration: none;
-	margin-bottom: 10px;
+	margin-bottom: 13px;
+	background-color: #fff;
+	border: solid 1px #bbb;
+}
+.button:hover {
+	background-color: #eee;
 }
 #search {
 	display: inline-block;
@@ -43,4 +47,14 @@
 }
 .detail-label {
 	padding: 3px;
+}
+.detail-text {
+	padding: 3px;
+}
+a.detail-a {
+	padding: 3px;
+	text-decoration: none;
+}
+.select {
+	padding: 5px;
 }
