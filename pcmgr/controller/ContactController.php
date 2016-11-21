@@ -43,7 +43,7 @@ class ContactController {
 
         $info = $contactData->getContactById($_GET["mll"]);
         if ($info != null)
-          $view->load($info[0]);
+          $view->load($info);
 
       }
       else { //hien thi theo trang binh thuong
