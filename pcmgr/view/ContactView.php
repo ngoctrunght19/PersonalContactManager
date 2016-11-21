@@ -221,9 +221,10 @@ class ContactView {
       </div>
       <div class="col-sm-10">
     ';
-
-    foreach ($info as $i){
-      echo '<p class="detail-text">'.$i['sdt'].' - '.$i['tenloai'].'</p>';
+    if ($info != null){
+      foreach ($info as $i){
+        echo '<p class="detail-text">'.$i['sdt'].' - '.$i['tenloai'].'</p>';
+      }
     }
 
     echo '
