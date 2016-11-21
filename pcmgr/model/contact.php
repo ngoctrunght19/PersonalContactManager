@@ -36,4 +36,20 @@
           return $c;
         }
 
+        public function updateContact($data) {
+          $db = new PDOData();
+          $c = $db->doSql("Update lienlac set
+                            hoten     = '$data->hoten',
+                            ngaysinh  = '$data->ngaysinh',
+                            email     = '$data->email',
+                            diachi    = '$data->diachi',
+                            nickname  = '$data->nickname',
+                            ghichu    = '$data->ghichu'
+                            where malienlac = $data->id");
+
+
+                             //  inner join cuocgoi c
+                             //  on c.masdt = s.masdt
+        }
+
     }

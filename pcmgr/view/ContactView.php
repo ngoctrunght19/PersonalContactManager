@@ -54,20 +54,20 @@ class ContactView {
       echo '<li><a href=?action=view&mll='.$c['malienlac'].'>'.$c['hoten'].'</a></li>';
     };
     echo '
-    </ul>
-  </div>
-</div>
-<div class="col-sm-7">
-  <button class="button">Thêm liên lạc</button>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <button class="button">Thêm liên lạc</button>
 
-  <div class="row">
-    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-9">
     ';
     echo '<h2>'.$info['hoten'].'</h2>';
     echo '
     </div>
     <div class="col-sm-1">
-      <button class="button" data-toggle="modal" data-target="#myModal">Sửa</button>
+      <button class="button" data-toggle="modal" data-target="#myModal"> Sửa</button>
     </div>
 
     <!-- Modal -->
@@ -85,7 +85,7 @@ class ContactView {
                   <label class="detail-label" for="hoten">Họ tên: </label>
                 </div>
                 <div class="col-sm-6">
-                  <input class="detail-input" type="text" name="hoten" id="hoten">
+                  <input class="detail-input" type="text" name="hoten" id="hoten" value="'.$info['hoten'].'">
                 </div>
               </div>
               <div class="row">
@@ -93,7 +93,7 @@ class ContactView {
                   <label class="detail-label" for="hoten">Ngày sinh: </label>
                 </div>
                 <div class="col-sm-6">
-                  <input class="detail-input" type="text" name="hoten" id="hoten">
+                  <input class="detail-input" type="text" name="ngaysinh" id="hoten" value="'.$info['ngaysinh'].'">
                 </div>
               </div>
               <div class="row">
@@ -101,7 +101,7 @@ class ContactView {
                   <label class="detail-label" for="hoten">Email: </label>
                 </div>
                 <div class="col-sm-6">
-                  <input class="detail-input" type="text" name="hoten" id="hoten">
+                  <input class="detail-input" type="text" name="email" id="hoten" value="'.$info['email'].'">
                 </div>
               </div>
               <div class="row">
@@ -109,7 +109,7 @@ class ContactView {
                   <label class="detail-label" for="hoten">Địa chỉ: </label>
                 </div>
                 <div class="col-sm-6">
-                  <input class="detail-input" type="text" name="hoten" id="hoten">
+                  <input class="detail-input" type="text" name="diachi" id="hoten" value="'.$info['diachi'].'">
                 </div>
               </div>
               <div class="row">
@@ -117,7 +117,7 @@ class ContactView {
                   <label class="detail-label" for="hoten">Nickname: </label>
                 </div>
                 <div class="col-sm-6">
-                  <input class="detail-input" type="text" name="hoten" id="hoten">
+                  <input class="detail-input" type="text" name="nickname" id="hoten" value="'.$info['nickname'].'">
                 </div>
               </div>
               <div class="row">
@@ -130,7 +130,7 @@ class ContactView {
               </div>
               <div class="row">
                 <div class="col-sm-6 col-sm-offset-2">
-                  <input class="detail-input" type="text" name="hoten" id="hoten">
+                  <input class="detail-input" type="text" id="hoten">
                 </div>
                 <div class="col-sm-1">
                   <label class="detail-label" for="hoten">Loại: </label>
@@ -147,15 +147,16 @@ class ContactView {
                   <label class="detail-label" for="hoten">Ghi chú: </label>
                 </div>
                 <div class="col-sm-6">
-                  <textarea class="form-control" rows="3" id="note"></textarea>
+                  <textarea class="form-control" rows="3" name="ghichu" id="note">'.$info['ghichu'].'</textarea>
                 </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-default">Cập nhật</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
               </div>
             </form>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default">Cập nhật</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-              </div>
+
           </div>
         </div>
     </div>
@@ -259,22 +260,22 @@ class ContactView {
         <p class="detail-text">'.$info['ghichu'].'</p>
       ';
       echo '
+            </div>
+          </div>
+        </form>
       </div>
-    </div>
-  </form>
-</div>
-</div>
+      </div>
 
-</div>
+      </div>
 
 
-<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+      <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/main.js"></script>
 
 
-</body>
-</html>
+      </body>
+      </html>
     ';
 
 
