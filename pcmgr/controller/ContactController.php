@@ -7,19 +7,7 @@ class ContactController {
   public function __construct() {}
 
     public function proc() {
-        if (isset($_GET["mll"])) {
-    
-          $id = $_GET["mll"];
-          $contactData = new Contact();
-          $info = $contactData->getContactById1($id);
-        //  var_dump($info);
-
-          $sdt = $contactData->getSDT($id);
-        //  var_dump($sdt);
-          ContactView::contactInfoView($info, $sdt);
-          return;
-        }
-        else if (isset($_GET["action"]) && $_GET["action"] == "view" && isset($_GET["mll"]) && !isset($_POST["hoten"])) {
+       if (isset($_GET["action"]) && $_GET["action"] == "view" && isset($_GET["mll"])) {
           $contactData = new Contact();
           $groupData   = new Group();
 
@@ -32,7 +20,7 @@ class ContactController {
           if ($info != null)
             $view->load($info);
       }
-      else if (isset($_POST["hoten"])){
+      else if (isset($_GET["action"]) && $_GET["action"] == "update" && isset($_GET["mll"])){
         $data = (object) [
           'id'       => $_GET["mll"],
           'hoten'    => $_POST["hoten"],
