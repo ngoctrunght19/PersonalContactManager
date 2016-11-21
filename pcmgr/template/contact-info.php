@@ -1,7 +1,7 @@
 
   <div class="row">
   	<div class="col-sm-9">
-      <h2><?php echo $info['hoten'] ?></h2>
+      <h2><?php echo $info[0]['hoten'] ?></h2>
     </div>
     <div class="col-sm-1">
       <button class="button" data-toggle="modal" data-target="#updateModal"> Sửa</button>
@@ -17,7 +17,7 @@
       <label class="detail-label" for="hoten">Ngày sinh: </label>
     </div>
     <div class="col-sm-10">
-      <p class="detail-text"><?php echo $info['ngaysinh'] ?></p>
+      <p class="detail-text"><?php echo $info[0]['ngaysinh'] ?></p>
     </div>
   </div>
 
@@ -26,7 +26,7 @@
       <label class="detail-label" for="hoten">Email: </label>
     </div>
     <div class="col-sm-10">
-      <p class="detail-text"><?php echo $info['email'] ?></p>
+      <p class="detail-text"><?php echo $info[0]['email'] ?></p>
     </div>
   </div>
 
@@ -35,7 +35,7 @@
       <label class="detail-label" for="hoten">Địa chỉ: </label>
     </div>
     <div class="col-sm-10">
-      <p class="detail-text"><?php echo $info['diachi'] ?></p>
+      <p class="detail-text"><?php echo $info[0]['diachi'] ?></p>
     </div>
   </div>
 
@@ -44,7 +44,7 @@
       <label class="detail-label" for="hoten">Nickname: </label>
     </div>
     <div class="col-sm-10">
-      <p class="detail-text"><?php echo $info['nickname'] ?></p>
+      <p class="detail-text"><?php echo $info[0]['nickname'] ?></p>
     </div>
   </div>
 
@@ -72,6 +72,10 @@
     <label class="detail-label" for="hoten">Ghi chú: </label>
     </div>
     <div class="col-sm-10">
-    <p class="detail-text"><?php echo $info['ghichu'] ?></p>
+    <p class="detail-text"><?php echo $info[0]['ghichu'] ?></p>
     </div>
   </div>
+
+<?php
+include('pcmgr/template/update-modal.php');
+?>

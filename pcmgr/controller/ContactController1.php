@@ -57,7 +57,7 @@ class ContactController1 {
           $info = $contactData->getContactById1($id);
 
           $sdt = $contactData->getSDT($id);
-          ContactView1::createContactInfo($info[0], $sdt);
+          ContactView1::createContactInfo($info, $sdt);
           return;
         }
 

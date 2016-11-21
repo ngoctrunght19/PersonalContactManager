@@ -55,7 +55,7 @@ echo'
                 </div>
                 <div class="col-sm-6">';
                 if ($info != null){
-                  foreach ($info as $i){
+                  foreach ($sdt as $i){
                     echo '<input class="detail-input" type="text" name="sdt" id="hoten" value="'.$i['sdt'].'">';
                   }
                 }
