@@ -58,3 +58,7 @@
 .select {
 	padding: 5px;
 }
+
+a {
+	cursor: pointer;
+}
