@@ -51,7 +51,7 @@ class ContactView {
 				<ul class="myUL" id="contactUL">
     ';
     foreach ($this->contacts as $c) {
-      echo '<li><a href=?action=view&mll='.$c['malienlac'].'>'.$c['hoten'].'</a></li>';
+      echo '<li><a malienlac='.$c['malienlac'].'>'.$c['hoten'].'</a></li>';
     };
     echo '
         </ul>
@@ -267,6 +267,94 @@ class ContactView {
 
 
 
+  }
+
+
+  public static function contactInfoView($info, $sdt) {
+    echo '
+    <div class="row">
+      <div class="col-sm-2">
+        <label class="detail-label" for="hoten">Ngày sinh: </label>
+      </div>
+      <div class="col-sm-10">
+      ';
+      echo '
+        <p class="detail-text">'.$info[0]['ngaysinh'].'</p>
+      ';
+      echo '
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <label class="detail-label" for="hoten">Email: </label>
+      </div>
+      <div class="col-sm-10">
+      ';
+      echo '
+        <p class="detail-text">'.$info[0]['email'].'</p>
+      ';
+    echo '
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <label class="detail-label" for="hoten">Địa chỉ: </label>
+      </div>
+      <div class="col-sm-10">
+      ';
+      echo '
+        <p class="detail-text">'.$info[0]['diachi'].'</p>
+      ';
+      echo '
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <label class="detail-label" for="hoten">Nickname: </label>
+      </div>
+      <div class="col-sm-10">
+      ';
+      echo '
+        <p class="detail-text">'.$info[0]['nickname'].'</p>
+      ';
+      echo '
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <label class="detail-label" for="hoten">Số điện thoại: </label>
+      </div>
+      <div class="col-sm-10">
+    ';
+    
+    foreach ($sdt as $s){
+      echo '<p class="detail-text">'.$s['sdt'].' - '.$s['loaisdt'].'</p>';
+    }
+  
+
+    echo '
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <button class="detail-button">Các cuộc gọi</button>
+      </div>
+    ';
+      echo '
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <label class="detail-label" for="hoten">Ghi chú: </label>
+      </div>
+      <div class="col-sm-10">
+      ';
+      echo '
+        <p class="detail-text">'.$info[0]['ghichu'].'</p>
+      ';
+      echo '
+            </div>
+          </div>
+    ';
   }
 }
 

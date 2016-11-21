@@ -13,4 +13,15 @@ $(document).ready(function(){
 	        }
 	    });
 	});
+
+	$("#contactUL a").click(function(event){
+		var mall = $(this).attr("malienlac");
+		console.log(mall);
+		var url = "index.php?mll=" + mall; 
+		console.log(url);
+		$.get(url, function(data, status){
+	//        alert("Data: " + data + "\nStatus: " + status);
+			$("form").html(data); 
+	    });
+	});
 });
