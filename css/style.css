@@ -32,11 +32,7 @@
 .myUL li a:hover {
 	background-color: #eee;
 }
-#form {
-	padding: 10px;
-	font-size: 14px;
-}
-#form .row {
+.form .row {
 	margin-top: 3px;
 }
 .detail-input {
@@ -50,15 +46,9 @@
 .detail-text {
 	padding: 3px;
 }
-.detail-button {
-	background-color: #fff;
-	border: none;
-	color: blue;
-}
 .select {
 	padding: 5px;
 }
-
 a {
 	cursor: pointer;
 }
