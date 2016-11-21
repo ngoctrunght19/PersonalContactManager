@@ -63,7 +63,7 @@ class ContactView {
       <div class="row">
         <div class="col-sm-9">
     ';
-    echo '<h2>'.$info['hoten'].'</h2>';
+    echo '<h2>'.$info[0]['hoten'].'</h2>';
     echo '
     </div>
     <div class="col-sm-1">
@@ -85,7 +85,7 @@ class ContactView {
                   <label class="detail-label" for="hoten">Họ tên: </label>
                 </div>
                 <div class="col-sm-6">
-                  <input class="detail-input" type="text" name="hoten" id="hoten" value="'.$info['hoten'].'">
+                  <input class="detail-input" type="text" name="hoten" id="hoten" value="'.$info[0]['hoten'].'">
                 </div>
               </div>
               <div class="row">
@@ -93,7 +93,7 @@ class ContactView {
                   <label class="detail-label" for="hoten">Ngày sinh: </label>
                 </div>
                 <div class="col-sm-6">
-                  <input class="detail-input" type="text" name="ngaysinh" id="hoten" value="'.$info['ngaysinh'].'">
+                  <input class="detail-input" type="text" name="ngaysinh" id="hoten" value="'.$info[0]['ngaysinh'].'">
                 </div>
               </div>
               <div class="row">
@@ -101,7 +101,7 @@ class ContactView {
                   <label class="detail-label" for="hoten">Email: </label>
                 </div>
                 <div class="col-sm-6">
-                  <input class="detail-input" type="text" name="email" id="hoten" value="'.$info['email'].'">
+                  <input class="detail-input" type="text" name="email" id="hoten" value="'.$info[0]['email'].'">
                 </div>
               </div>
               <div class="row">
@@ -109,7 +109,7 @@ class ContactView {
                   <label class="detail-label" for="hoten">Địa chỉ: </label>
                 </div>
                 <div class="col-sm-6">
-                  <input class="detail-input" type="text" name="diachi" id="hoten" value="'.$info['diachi'].'">
+                  <input class="detail-input" type="text" name="diachi" id="hoten" value="'.$info[0]['diachi'].'">
                 </div>
               </div>
               <div class="row">
@@ -117,7 +117,7 @@ class ContactView {
                   <label class="detail-label" for="hoten">Nickname: </label>
                 </div>
                 <div class="col-sm-6">
-                  <input class="detail-input" type="text" name="nickname" id="hoten" value="'.$info['nickname'].'">
+                  <input class="detail-input" type="text" name="nickname" id="hoten" value="'.$info[0]['nickname'].'">
                 </div>
               </div>
               <div class="row">
@@ -147,7 +147,7 @@ class ContactView {
                   <label class="detail-label" for="hoten">Ghi chú: </label>
                 </div>
                 <div class="col-sm-6">
-                  <textarea class="form-control" rows="3" name="ghichu" id="note">'.$info['ghichu'].'</textarea>
+                  <textarea class="form-control" rows="3" name="ghichu" id="note">'.$info[0]['ghichu'].'</textarea>
                 </div>
               </div>
               <div class="modal-footer">
@@ -174,7 +174,7 @@ class ContactView {
       <div class="col-sm-10">
       ';
       echo '
-        <p class="detail-text">'.$info['ngaysinh'].'</p>
+        <p class="detail-text">'.$info[0]['ngaysinh'].'</p>
       ';
       echo '
       </div>
@@ -186,7 +186,7 @@ class ContactView {
       <div class="col-sm-10">
       ';
       echo '
-        <p class="detail-text">'.$info['email'].'</p>
+        <p class="detail-text">'.$info[0]['email'].'</p>
       ';
     echo '
       </div>
@@ -198,7 +198,7 @@ class ContactView {
       <div class="col-sm-10">
       ';
       echo '
-        <p class="detail-text">'.$info['diachi'].'</p>
+        <p class="detail-text">'.$info[0]['diachi'].'</p>
       ';
       echo '
       </div>
@@ -210,7 +210,7 @@ class ContactView {
       <div class="col-sm-10">
       ';
       echo '
-        <p class="detail-text">'.$info['nickname'].'</p>
+        <p class="detail-text">'.$info[0]['nickname'].'</p>
       ';
       echo '
       </div>
@@ -221,9 +221,11 @@ class ContactView {
       </div>
       <div class="col-sm-10">
     ';
-    echo '
-      <p class="detail-text">'.$info['sdt'].'</p>
-    ';
+
+    foreach ($info as $i){
+      echo '<p class="detail-text">'.$i['sdt'].' - '.$i['tenloai'].'</p>';
+    }
+
     echo '
     </div>
     </div>
@@ -231,24 +233,8 @@ class ContactView {
       <div class="col-sm-2">
         <button class="detail-button">Các cuộc gọi</button>
       </div>
-      <div class="col-sm-6">
     ';
-    // echo '
-    //   <p class="detail-text">'.$info['thoigian'].' ___ '.$info['thoiluong'].' phút'.'</p>
-    // ';
-
-    echo '
-      </div>
-      <div class="col-sm-1">
-        <label class="detail-label" for="hoten">Loại: </label>
-      </div>
-      <div class="col-sm-2">
-      ';
       echo '
-        <p class="detail-text">'.$info['tenloai'].'</p>
-      ';
-      echo '
-      </div>
     </div>
     <div class="row">
       <div class="col-sm-2">
@@ -257,7 +243,7 @@ class ContactView {
       <div class="col-sm-10">
       ';
       echo '
-        <p class="detail-text">'.$info['ghichu'].'</p>
+        <p class="detail-text">'.$info[0]['ghichu'].'</p>
       ';
       echo '
             </div>
