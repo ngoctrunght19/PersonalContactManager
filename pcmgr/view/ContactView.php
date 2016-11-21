@@ -5,7 +5,8 @@ class ContactView {
       $this->groups = $groups;
   }
 
-  public function load() {
+  public function load($info) {
+
     // Head
     echo '
     <!DOCTYPE html>
@@ -50,7 +51,7 @@ class ContactView {
 				<ul class="myUL" id="contactUL">
     ';
     foreach ($this->contacts as $c) {
-      echo '<li><a href="">'.$c['hoten'].'</a></li>';
+      echo '<li><a href=?action=view&mll='.$c['malienlac'].'>'.$c['hoten'].'</a></li>';
     };
     echo '
     </ul>
@@ -61,7 +62,9 @@ class ContactView {
 
   <div class="row">
     <div class="col-sm-9">
-      <h2>Nguyễn Bá Tú</h2>
+    ';
+    echo '<h2>'.$info['hoten'].'</h2>';
+    echo '
     </div>
     <div class="col-sm-1">
       <button class="button" data-toggle="modal" data-target="#myModal">Sửa</button>
@@ -168,7 +171,11 @@ class ContactView {
         <label class="detail-label" for="hoten">Ngày sinh: </label>
       </div>
       <div class="col-sm-10">
-        <p class="detail-text">01/09/1996</p>
+      ';
+      echo '
+        <p class="detail-text">'.$info['ngaysinh'].'</p>
+      ';
+      echo '
       </div>
     </div>
     <div class="row">
@@ -176,7 +183,11 @@ class ContactView {
         <label class="detail-label" for="hoten">Email: </label>
       </div>
       <div class="col-sm-10">
-        <p class="detail-text">batu4404@gmail.com</p>
+      ';
+      echo '
+        <p class="detail-text">'.$info['email'].'</p>
+      ';
+    echo '
       </div>
     </div>
     <div class="row">
@@ -184,7 +195,11 @@ class ContactView {
         <label class="detail-label" for="hoten">Địa chỉ: </label>
       </div>
       <div class="col-sm-10">
-        <p class="detail-text">Chỉ biết mỗi ở Hoài Đức</p>
+      ';
+      echo '
+        <p class="detail-text">'.$info['diachi'].'</p>
+      ';
+      echo '
       </div>
     </div>
     <div class="row">
@@ -192,26 +207,46 @@ class ContactView {
         <label class="detail-label" for="hoten">Nickname: </label>
       </div>
       <div class="col-sm-10">
-        <p class="detail-text">Tu Ba</p>
+      ';
+      echo '
+        <p class="detail-text">'.$info['nickname'].'</p>
+      ';
+      echo '
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-2">
         <label class="detail-label" for="hoten">Số điện thoại: </label>
       </div>
+      <div class="col-sm-10">
+    ';
+    echo '
+      <p class="detail-text">'.$info['sdt'].'</p>
+    ';
+    echo '
+    </div>
     </div>
     <div class="row">
       <div class="col-sm-2">
         <button class="detail-button">Các cuộc gọi</button>
       </div>
       <div class="col-sm-6">
-        <p class="detail-text">0964700502</p>
+    ';
+    // echo '
+    //   <p class="detail-text">'.$info['thoigian'].' ___ '.$info['thoiluong'].' phút'.'</p>
+    // ';
+
+    echo '
       </div>
       <div class="col-sm-1">
         <label class="detail-label" for="hoten">Loại: </label>
       </div>
       <div class="col-sm-2">
-        <p class="detail-text">Di động</p>
+      ';
+      echo '
+        <p class="detail-text">'.$info['tenloai'].'</p>
+      ';
+      echo '
       </div>
     </div>
     <div class="row">
@@ -219,7 +254,11 @@ class ContactView {
         <label class="detail-label" for="hoten">Ghi chú: </label>
       </div>
       <div class="col-sm-10">
-        <p class="detail-text">cân team</p>
+      ';
+      echo '
+        <p class="detail-text">'.$info['ghichu'].'</p>
+      ';
+      echo '
       </div>
     </div>
   </form>

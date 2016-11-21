@@ -23,4 +23,17 @@
           return $c;
         }
 
+        public function getContactById($id) {
+          $db = new PDOData();
+          $c = $db->doQuery("select l.*, s.*, li.* from lienlac l
+                             inner join sodienthoai s
+                             on l.malienlac = s.malienlac
+                             inner join loaisdt li
+                             on s.loaisdt = li.maloai
+                             where l.malienlac=$id");
+                             //  inner join cuocgoi c
+                             //  on c.masdt = s.masdt
+          return $c;
+        }
+
     }
