@@ -1,3 +1,5 @@
+var temp;
+
 $(document).ready(function(){
 	var browserHeight = window.innerHeight; //lấy chiều cao khung trình duyệt trên các trình duyệt khác
 	var ContentHeight = browserHeight - 150;//tính chiều cao cho phần nội dung
@@ -33,4 +35,22 @@ $(document).ready(function(){
 	$('body').on('click', 'a.deletePhone', function() {
 		$(this).parent().parent().remove();
 	});
+
+	$('body').on('click', '[data-target="#modalEdit"]', function() {
+		temp = $('#modalEdit').clone();
+		console.log(temp);
+    });
+
+    $('body').on('click', '[data-target="#modalAdd"]', function() {
+		temp = $('#modalAdd').clone();
+		console.log(temp);
+    });
+
+ //    $('#modal-content').on('shown.bs.modal', function() {
+	//     $("#txtname").focus();
+	// })
+
+    $('.modal').on('hide.bs.modal', function () { 
+		$(this).replaceWith(temp);
+	}); 
 });
