@@ -54,7 +54,7 @@ $(document).ready(function(){
 	//     $("#txtname").focus();
 	// })
 
-    $('.modal').on('hide.bs.modal', function () { 
+    $('body').on('hide.bs.modal', '.modal', function () { 
 		$(this).replaceWith(temp);
 	}); 
 });
