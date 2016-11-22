@@ -27,7 +27,11 @@ $(document).ready(function(){
 	    });
 	});
 	//addPhone
-	$(".addPhone").click(function(){
+	// $(".addPhone").click(function(){
+	// 	var textbox = '<div><div class="col-sm-6 col-sm-offset-2"><input class="form-control" type="text" name="hoten" id="hoten"></div><div class="col-sm-1"><label class="detail-label" for="hoten">Loại: </label></div><div class="col-sm-2"><select class="form-control"><option>Nhà Riêng</option><option>Di động</option></select></div><div class="col-sm-1"><a class="deletePhone">Xóa</a></div></div>';
+	// 	$(this).parent().parent().prepend(textbox);
+	// });
+	$('body').on('click', 'a.addPhone', function() {
 		var textbox = '<div><div class="col-sm-6 col-sm-offset-2"><input class="form-control" type="text" name="hoten" id="hoten"></div><div class="col-sm-1"><label class="detail-label" for="hoten">Loại: </label></div><div class="col-sm-2"><select class="form-control"><option>Nhà Riêng</option><option>Di động</option></select></div><div class="col-sm-1"><a class="deletePhone">Xóa</a></div></div>';
 		$(this).parent().parent().prepend(textbox);
 	});
