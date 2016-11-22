@@ -8,13 +8,12 @@
 
 </head>
 <body>
-
-<div class="container-fluid">
-	<h1>Danh bạ</h1>
-	<br>
+<div class="title">Personal Contact Manager</div>
+<br>
+<div class="container">
 	<div class="row">
 		<div class="col-sm-2">
-			<button class="button" data-toggle="modal" data-target="#modalAddGroup">Thêm nhóm</button>
+			<button class="btn btn-primary" data-toggle="modal" data-target="#modalAddGroup">Thêm nhóm</button>
 			<div class="listbox">
 				<ul class="myUL">
 					<li><a href="">Tất cả</a></li>
@@ -25,7 +24,12 @@
 			</div>
 		</div>
 		<div class="col-sm-3">
-			<input type="text" id="search" placeholder="Tìm kiếm ...">
+			<div class="row">
+				<div class="col-sm-11">
+					<input type="text" class="form-control" id="search" placeholder="Tìm kiếm ...">
+				</div>
+			</div>
+			
 			<div class="listbox">
 				<ul class="myUL" id="contactUL">
 					<li><a href="">Trần Văn An</a></li>
@@ -50,18 +54,18 @@
 			</div>
 		</div>
 		<div class="col-sm-7">
-			<button class="button" data-toggle="modal" data-target="#modalAdd">Thêm liên lạc</button>
+			<button class="btn btn-primary" data-toggle="modal" data-target="#modalAdd">Thêm liên lạc</button>
 
 			<div class="row">
 				<div class="col-sm-9">
 					<h2>Nguyễn Bá Tú</h2>
 				</div>
 				<div class="col-sm-1">
-					<button class="button" data-toggle="modal" data-target="#modalEdit">Sửa</button>
+					<button class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Sửa</button>
 				</div>
 
 				<div class="col-sm-1">
-					<button class="button">Xóa</button>
+					<button class="btn btn-primary">Xóa</button>
 				</div>
 			</div>
 
@@ -123,7 +127,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					<button class="button" data-toggle="modal" data-target="#modalShowCall">Thông tin các cuộc gọi</button>
+					<button class="btn btn-primary" data-toggle="modal" data-target="#modalShowCall">Thông tin các cuộc gọi</button>
 				</div>
 
 			</div>
@@ -143,18 +147,18 @@
 	        <div class="modal-body">
 	        	<form class="form" id="addGroup" method="post" action="">
 					<div class="row">
-						<div class="col-sm-2">
+						<div class="col-sm-2 col-sm-offset-1">
 							<label class="detail-label">Tên nhóm: </label>
 						</div>
-						<div class="col-sm-6">
-							<input class="detail-input" type="text">
+						<div class="col-sm-8">
+							<input class="form-control" type="text">
 						</div>
 					</div>
 				</form>
 	        </div>
         	<div class="modal-footer">
-        		<button type="button" class="btn btn-default">Chấp nhận</button>
-        		<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+        		<button type="button" class="btn btn-primary">Chấp nhận</button>
+        		<button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
         	</div>
     	</div>
     </div>
@@ -170,91 +174,91 @@
 	        </div>
 	        <div class="modal-body">
 	        	<form class="form" id="add" method="post" action="">
-    					<div class="row">
-    						<div class="col-sm-2">
-    							<label class="detail-label">Họ tên: </label>
-    						</div>
-    						<div class="col-sm-6">
-    							<input class="detail-input" type="text">
-    						</div>
-    						<div class="col-sm-1">
-    							<label class="detail-label">Nhóm: </label>
-    						</div>
-    						<div class="col-sm-3">
-    							<select class="select">
-    								<option>Gia đình</option>
-    								<option>Bạn bè</option>
-    								<option>Đối tác</option>
-    							</select>
-    						</div>
-    					</div>
-    					<div class="row">
-    						<div class="col-sm-2">
-    							<label class="detail-label">Ngày sinh: </label>
-    						</div>
-    						<div class="col-sm-6">
-    							<input class="detail-input" type="text">
-    						</div>
-    					</div>
-    					<div class="row">
-    						<div class="col-sm-2">
-    							<label class="detail-label">Email: </label>
-    						</div>
-    						<div class="col-sm-6">
-    							<input class="detail-input" type="text">
-    						</div>
-    					</div>
-    					<div class="row">
-    						<div class="col-sm-2">
-    							<label class="detail-label">Địa chỉ: </label>
-    						</div>
-    						<div class="col-sm-6">
-    							<input class="detail-input" type="text">
-    						</div>
-    					</div>
-    					<div class="row">
-    						<div class="col-sm-2">
-    							<label class="detail-label">Nickname: </label>
-    						</div>
-    						<div class="col-sm-6">
-    							<input class="detail-input" type="text">
-    						</div>
-    					</div>
-              <div class="row">
-    						<div class="col-sm-2">
-    							<label class="detail-label">Số điện thoại: </label>
-    						</div>
-                <div class="col-sm-6">
-    							<input class="detail-input" type="text">
-    						</div>
-                <div class="col-sm-1">
-    							<label class="detail-label">Loại: </label>
-    						</div>
-    						<div class="col-sm-3">
-    							<select class="select">
-    								<option>Nhà Riêng</option>
-    								<option>Di động</option>
-    							</select>
-    						</div>
-    					</div>
-    					<div class="row">
-                <div class="col-sm-10 col-sm-offset-2">
-    							<a class="addPhone">Thêm số điện thoại</a>
-    						</div>
-    					</div>
-    					<div class="row">
-    						<div class="col-sm-2">
-    							<label class="detail-label">Ghi chú: </label>
-    						</div>
-    						<div class="col-sm-6">
-    							<textarea class="form-control" rows="3" id="note"></textarea>
-    						</div>
-    					</div>
-    				</form>
+					<div class="row">
+						<div class="col-sm-2">
+							<label class="detail-label">Họ tên: </label>
+						</div>
+						<div class="col-sm-6">
+							<input class="form-control" type="text">
+						</div>
+						<div class="col-sm-1">
+							<label class="detail-label">Nhóm: </label>
+						</div>
+						<div class="col-sm-2">
+							<select class="form-control">
+								<option>Gia đình</option>
+								<option>Bạn bè</option>
+								<option>Đối tác</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-2">
+							<label class="detail-label">Ngày sinh: </label>
+						</div>
+						<div class="col-sm-6">
+							<input class="form-control" type="text">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-2">
+							<label class="detail-label">Email: </label>
+						</div>
+						<div class="col-sm-6">
+							<input class="form-control" type="text">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-2">
+							<label class="detail-label">Địa chỉ: </label>
+						</div>
+						<div class="col-sm-6">
+							<input class="form-control" type="text">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-2">
+							<label class="detail-label">Nickname: </label>
+						</div>
+						<div class="col-sm-6">
+							<input class="form-control" type="text">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-2">
+							<label class="detail-label">Số điện thoại: </label>
+						</div>
+						<div class="col-sm-6">
+							<input class="form-control" type="text">
+						</div>
+						<div class="col-sm-1">
+							<label class="detail-label">Loại: </label>
+						</div>
+						<div class="col-sm-2">
+							<select class="form-control">
+								<option>Nhà Riêng</option>
+								<option>Di động</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-2">
+							<a class="addPhone">Thêm số điện thoại</a>
+						</div>
+						</div>
+					<div class="row">
+						<div class="col-sm-2">
+							<label class="detail-label">Ghi chú: </label>
+						</div>
+						<div class="col-sm-6">
+							<textarea class="form-control" rows="3" id="note"></textarea>
+						</div>
+					</div>
+    			</form>
 	        </div>
         	<div class="modal-footer">
-        		<button type="button" class="btn btn-default">Chấp nhận</button>
-        		<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+        		<button type="button" class="btn btn-primary">Chấp nhận</button>
+        		<button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
         	</div>
     	</div>
     </div>
@@ -275,13 +279,13 @@
 							<label class="detail-label">Họ tên: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="detail-input" type="text">
+							<input class="form-control" type="text">
 						</div>
 						<div class="col-sm-1">
 							<label class="detail-label">Nhóm: </label>
 						</div>
-						<div class="col-sm-3">
-							<select class="select">
+						<div class="col-sm-2">
+							<select class="form-control">
 								<option>Gia đình</option>
 								<option>Bạn bè</option>
 								<option>Đối tác</option>
@@ -293,7 +297,7 @@
 							<label class="detail-label">Ngày sinh: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="detail-input" type="text">
+							<input class="form-control" type="text">
 						</div>
 					</div>
 					<div class="row">
@@ -301,7 +305,7 @@
 							<label class="detail-label">Email: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="detail-input" type="text">
+							<input class="form-control" type="text">
 						</div>
 					</div>
 					<div class="row">
@@ -309,7 +313,7 @@
 							<label class="detail-label">Địa chỉ: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="detail-input" type="text">
+							<input class="form-control" type="text">
 						</div>
 					</div>
 					<div class="row">
@@ -317,31 +321,31 @@
 							<label class="detail-label">Nickname: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="detail-input" type="text">
+							<input class="form-control" type="text">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-2">
 							<label class="detail-label">Số điện thoại: </label>
 						</div>
-            <div class="col-sm-6">
-							<input class="detail-input" type="text">
+						<div class="col-sm-6">
+							<input class="form-control" type="text">
 						</div>
-            <div class="col-sm-1">
+						<div class="col-sm-1">
 							<label class="detail-label">Loại: </label>
 						</div>
-						<div class="col-sm-3">
-							<select class="select">
+						<div class="col-sm-2">
+							<select class="form-control">
 								<option>Nhà Riêng</option>
 								<option>Di động</option>
 							</select>
 						</div>
 					</div>
 					<div class="row">
-            <div class="col-sm-10 col-sm-offset-2">
+						<div class="col-sm-10 col-sm-offset-2">
 							<a class="addPhone">Thêm số điện thoại</a>
 						</div>
-					</div>
+						</div>
 					<div class="row">
 						<div class="col-sm-2">
 							<label class="detail-label">Ghi chú: </label>
@@ -353,8 +357,8 @@
 				</form>
 	        </div>
         	<div class="modal-footer">
-        		<button type="button" class="btn btn-default">Cập nhật</button>
-        		<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+        		<button type="button" class="btn btn-primary">Cập nhật</button>
+        		<button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
         	</div>
     	</div>
     </div>
@@ -371,10 +375,10 @@
 	        <div class="modal-body">
 	        	<div class="form">
 					<div class="row">
-						<div class="col-sm-4">
+						<div class="col-sm-3 col-sm-offset-2">
 							<label class="detail-label">Ngày gọi</label>
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<label class="detail-label">Số điện thoại</label>
 						</div>
 						<div class="col-sm-4">
@@ -382,10 +386,10 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-4">
+						<div class="col-sm-3 col-sm-offset-2">
 							<p class="detail-text">2016-10-01</p>
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<p class="detail-text">01669314484</p>
 						</div>
 						<div class="col-sm-4">
@@ -395,7 +399,7 @@
 				</div>
 	        </div>
         	<div class="modal-footer">
-        		<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+        		<button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
         	</div>
     	</div>
     </div>
