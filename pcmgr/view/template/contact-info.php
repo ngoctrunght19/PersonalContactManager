@@ -77,5 +77,5 @@
   </div>
 
 <?php
-include('pcmgr/template/update-modal.php');
+include('pcmgr/view/template/update-modal.php');
 ?>

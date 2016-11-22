@@ -27,9 +27,9 @@ class ContactView {
     	<br>
       <div class="row">';
     // Group view
-    include("pcmgr/template/group-view.php");
+    include("pcmgr/view/template/group-view.php");
     // Contact view
-    include("pcmgr/template/contact-view.php");
+    include("pcmgr/view/template/contact-view.php");
     // Info view
     include("pcmgr/template/info-view.php");
     echo '

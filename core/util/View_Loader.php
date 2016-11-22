@@ -10,7 +10,7 @@ class View_Loader
         extract($data);
          
         ob_start();
-        require_once 'pcmgr' . '/template/' . $view . '.php';
+        require_once 'pcmgr' . '/view/template/' . $view . '.php';
         $content = ob_get_contents();
         ob_end_clean();
          
