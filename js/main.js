@@ -17,11 +17,20 @@ $(document).ready(function(){
 	$("#contactUL a").click(function(event){
 		var mall = $(this).attr("malienlac");
 		console.log(mall);
-		var url = "index.php?mll=" + mall; 
+		var url = "index.php?mll=" + mall;
 		console.log(url);
 		$.get(url, function(data, status){
 	//        alert("Data: " + data + "\nStatus: " + status);
-			$("#contact-info").html(data); 
+			$("#contact-info").html(data);
 	    });
+	});
+	//addPhone
+	$(".addPhone").click(function(){
+		var textbox = '<div><div class="col-sm-6 col-sm-offset-2"><input class="detail-input" type="text" name="hoten" id="hoten"></div><div class="col-sm-1"><label class="detail-label" for="hoten">Loại: </label></div><div class="col-sm-2"><select class="select"><option>Nhà Riêng</option><option>Di động</option></select></div><div class="col-sm-1"><a class="deletePhone">Xóa</a></div></div>';
+		$(this).parent().parent().prepend(textbox);
+	});
+	//deletePhone
+	$('body').on('click', 'a.deletePhone', function() {
+		$(this).parent().parent().remove();
 	});
 });
