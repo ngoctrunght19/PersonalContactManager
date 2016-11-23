@@ -16,10 +16,16 @@
           return $ret;
         }
 
-        public function newContact($ht,  $sdt, $ns=null, $email=null,
-                                    $diachi=null, $nickname=null, $ghichu=null) {
+        public function addContact($data) {
           $db = new PDOData();
-          $c = $db->doSql("insert into LienLac(masv, hoten) values('$m', '$ht')");
+          $c = $db->doSql("insert into lienLac(hoten, manhom, ngaysinh, email, diachi, nickname, ghichu)
+                           values('$data->hoten',
+                                  '$data->manhom',
+                                  '$data->ngaysinh',
+                                  '$data->email',
+                                  '$data->diachi',
+                                  '$data->nickname',
+                                  '$data->ghichu')");
           return $c;
         }
 
@@ -78,7 +84,7 @@
         public function delContact($id) {
           $db = new PDOData();
           try {
-            $c = $db->doSql("delete from lienlac 
+            $c = $db->doSql("delete from lienlac
                             where malienlac='$id'");
           } catch(Exception $e)
           {

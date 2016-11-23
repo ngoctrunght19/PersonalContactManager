@@ -7,22 +7,22 @@
 	        	<h2 class="modal-title">Thêm liên lạc</h2>
 	        </div>
 	        <div class="modal-body">
-	        	<form class="form" id="add" method="post" action="">
+	        	<form class="form" id="addcontact" method="post" action="">
 					<div class="row">
 						<div class="col-sm-2">
 							<label class="detail-label">Họ tên: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" id="hoten">
 						</div>
 						<div class="col-sm-1">
 							<label class="detail-label">Nhóm: </label>
 						</div>
 						<div class="col-sm-2">
-							<select class="form-control">
+							<select class="form-control" id="nhom">
 								<?php
 									foreach ($groups as $g) {
-									  echo '<option manhom='.$g['manhom'].'>'.$g['tennhom'].'</option>';
+									  echo '<option value='.$g['manhom'].'>'.$g['tennhom'].'</option>';
 									}
 								?>
 							</select>
@@ -33,15 +33,15 @@
 							<label class="detail-label">Ngày sinh: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" id="ngaysinh">
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-2">
-							<label class="detail-label">Email: </label>
+							<label class="detail-label" >Email: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" id="email">
 						</div>
 					</div>
 					<div class="row">
@@ -49,7 +49,7 @@
 							<label class="detail-label">Địa chỉ: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" id="diachi">
 						</div>
 					</div>
 					<div class="row">
@@ -57,7 +57,7 @@
 							<label class="detail-label">Nickname: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" id="nickname">
 						</div>
 					</div>
 					<div class="row">
@@ -65,13 +65,13 @@
 							<label class="detail-label">Số điện thoại: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" id="sdt">
 						</div>
 						<div class="col-sm-1">
 							<label class="detail-label">Loại: </label>
 						</div>
 						<div class="col-sm-2">
-							<select class="form-control">
+							<select class="form-control" id="loai">
 								<?php
 									foreach ($phoneTypes as $t) {
 									  echo '<option manhom='.$t['maloai'].'>'.$t['tenloai'].'</option>';
@@ -90,7 +90,7 @@
 							<label class="detail-label">Ghi chú: </label>
 						</div>
 						<div class="col-sm-6">
-							<textarea class="form-control" rows="3" id="note"></textarea>
+							<textarea class="form-control" rows="3" id="ghichu"></textarea>
 						</div>
 					</div>
     			</form>
@@ -104,7 +104,7 @@
     <div style="display:none" id="phone-hidden">
     	<div class="addPhoneForm">
 			<div class="col-sm-6 col-sm-offset-2">
-				<input class="form-control" type="text" name="hoten" id="hoten">
+				<input class="form-control" type="text">
 			</div>
 			<div class="col-sm-1">
 				<label class="detail-label" for="hoten">Loại: </label>

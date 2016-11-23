@@ -72,15 +72,15 @@ $(document).ready(function(){
 		clone = true;
     });
 
-    $('body').on('hide.bs.modal', '.modal', function () { 
-    	
+    $('body').on('hide.bs.modal', '.modal', function () {
+
     	if (clone)
 			$(this).replaceWith(temp);
 		clone = false;
 
-	}); 
+	});
 
-	$('body').on('click', '#delete-contact', function () { 
+	$('body').on('click', '#delete-contact', function () {
 		var malienlac = $(this).attr("malienlac");
 		console.log(malienlac);
 		var url = "index.php?action=del&mll=" + malienlac;
@@ -90,15 +90,15 @@ $(document).ready(function(){
 			newDoc.write(data);
 			newDoc.close();
 	    });
-	}); 
+	});
 
 	$('#showAddGroupBtn').click(function(event) {
 		groups = $('.nhom');
 		console.log('test');
 	});
 
-	// add group 
-	$('body').on('click', '#addGroupBtn', function () { 
+	// add group
+	$('body').on('click', '#addGroupBtn', function () {
 		var newGroup = $('#new-group').val();
 		newGroup = newGroup.trim();
 
@@ -118,12 +118,28 @@ $(document).ready(function(){
 			newDoc.close();
 	    });
 
-	}); 
+	});
 
 	// add contact
-	$('body').on('click', '#addContactBtn', function () { 
-		
-    	var url = "index.php?action=test";
+	$('body').on('click', '#addContactBtn', function () {
+		var hoten 	 = $('#hoten').val();
+		var ngaysinh = $('#ngaysinh').val();
+		var email    = $('#email').val();
+		var diachi   = $('#diachi').val();
+		var nickname = $('#nickname').val();
+		var sdt      = $('#sdt').val();
+		var ghichu   = $('#ghichu').val();
+		var manhom     = $('#nhom').val();
+
+    var url = "index.php?action=addcontact"
+							 + "&hoten=" + hoten
+							 + "&manhom=" + manhom
+							 + "&ngaysinh=" + ngaysinh
+							 + "&email=" + email
+							 + "&diachi=" + diachi
+							 + "&nickname= " + nickname
+							 + "&ghichu=" + ghichu;
+
 		console.log(url);
 		$.get(url, function(data, status){
 			console.log("done");
@@ -132,5 +148,5 @@ $(document).ready(function(){
 			newDoc.close();
 	    });
 
-	}); 
+	});
 });

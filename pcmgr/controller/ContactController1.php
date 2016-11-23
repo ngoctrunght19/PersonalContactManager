@@ -24,8 +24,8 @@ class ContactController1 {
         $this->helper->load('contact-view', $data);
 
         $this->helper->show();
-         
-       
+
+
     }
 
     public function homeLoad() {
@@ -58,14 +58,31 @@ class ContactController1 {
         }
     }
 
+    public function addContact() {
+        if (isset($_GET["hoten"])) {
+          $data = (object) [
+            'hoten'    => $_GET["hoten"],
+            'manhom'   => $_GET["manhom"],
+            'ngaysinh' => $_GET["ngaysinh"],
+            'email'    => $_GET["email"],
+            'diachi'   => $_GET["diachi"],
+            'nickname' => $_GET["nickname"],
+            'ghichu'   => $_GET["ghichu"]
+          ];
+
+          $newContact = new Contact();
+          $newContact->addContact($data);
+        }
+    }
+
     public function proc() {
         if ( isset($_GET['action']) && $_GET['action']=="del" && isset($_GET["mll"]) ) {
             $contactData = new Contact();
             $contactData->delContact($_GET["mll"]);
         //    return;
-        } 
+        }
         else if (isset($_GET["mll"])) {
-    
+
             $id = $_GET["mll"];
             $contactData = new Contact();
             $info = $contactData->getContactById1($id);
@@ -77,8 +94,8 @@ class ContactController1 {
         else if ( isset($_GET['action']) && $_GET['action']=="addgroup") {
             $this->addGroup();
         }
-        else if ( isset($_GET['action']) && $_GET['action']=='test') {
-            ContactView1::foo();
+        else if ( isset($_GET['action']) && $_GET['action']=='addcontact') {
+            $this->addContact();
         }
 
         $this->homeLoad();
