@@ -48,6 +48,14 @@ class ContactController1 {
         $helper->show();
     }
 
+    public function addGroup() {
+      if (isset($_GET["newgroup"])) {
+        $newgroup = $_GET['newgroup'];
+        $group = new Group();
+        $group->addGroup($newgroup);
+      }
+    }
+
     public function proc() {
         if ( isset($_GET['action']) && $_GET['action']=="del" && isset($_GET["mll"]) ) {
           $contactData = new Contact();
@@ -63,6 +71,9 @@ class ContactController1 {
           $sdt = $contactData->getSDT($id);
           ContactView1::createContactInfo($info, $sdt);
           return;
+        }
+        else if ( isset($_GET['action']) && $_GET['action']=="addgroup") {
+          $this->addGroup();
         }
 
       $this->homeLoad();

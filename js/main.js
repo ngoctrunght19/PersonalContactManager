@@ -18,6 +18,19 @@ $(document).ready(function(){
 	    });
 	});
 
+	$('body').on('click', '#groupUL a', function() {
+		if ($(this).attr('id') == "all-contact") {
+			$('#contactUL li').show();
+			console.log("hello");
+			return;
+		}
+
+		$('#contactUL li').hide();
+		var groupID = $(this).attr("nhom");
+		var selector = "[manhom=" + groupID + "]";
+		$(selector).show();
+	});
+
 	$("#contactUL a").click(function(event){
 		var mall = $(this).attr("malienlac");
 		console.log(mall);
@@ -44,7 +57,6 @@ $(document).ready(function(){
 
 	$('body').on('click', '[data-target="#modalEdit"]', function() {
 		temp = $('#modalEdit').clone();
-		console.log(temp);
 		clone = true;
     });
 
@@ -58,16 +70,12 @@ $(document).ready(function(){
 		clone = true;
     });
 
- //    $('#modal-content').on('shown.bs.modal', function() {
-	//     $("#txtname").focus();
-	// })
-
     $('body').on('hide.bs.modal', '.modal', function () { 
-    	console.log('clone: ' + clone);
+    	
     	if (clone)
 			$(this).replaceWith(temp);
 		clone = false;
-		console.log($(this));
+
 	}); 
 
 	$('body').on('click', '#delete-contact', function () { 
@@ -76,16 +84,36 @@ $(document).ready(function(){
 		var url = "index.php?action=del&mll=" + malienlac;
 		console.log(url);
 		$.get(url, function(data, status){
-	//        alert("Data: " + data + "\nStatus: " + status);
-	//		$("body").html(data);
 			var newDoc = document.open("text/html", "replace");
 			newDoc.write(data);
 			newDoc.close();
 	    });
 	}); 
 
-	$('#addGroupBtn').click(function(event) {
-	//	groups = $('.nhom');
+	$('#showAddGroupBtn').click(function(event) {
+		groups = $('.nhom');
 		console.log('test');
 	});
+
+	$('body').on('click', '#addGroupBtn', function () { 
+		var newGroup = $('#new-group').val();
+		newGroup = newGroup.trim();
+
+		console.log(newGroup);
+    	for (var i = 0; i < groups.length; i++) {
+    		if (groups[i].text == newGroup) {
+    			console.log("giong roi");
+    			return;
+    		}
+    	}
+    	var url = "index.php?action=addgroup&newgroup=" + newGroup;
+		console.log(url);
+		$.get(url, function(data, status){
+			console.log("done");
+			var newDoc = document.open("text/html", "replace");
+			newDoc.write(data);
+			newDoc.close();
+	    });
+
+	}); 
 });

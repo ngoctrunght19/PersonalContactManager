@@ -13,13 +13,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-2">
-			<button class="btn btn-primary" data-toggle="modal" id="addGroupBtn" data-target="#modalAddGroup">Thêm nhóm</button>
+			<button class="btn btn-primary" data-toggle="modal" id="showAddGroupBtn" data-target="#modalAddGroup">Thêm nhóm</button>
 			<div class="listbox">
-				<ul class="myUL">
-					<li><a href="">Tất cả</a></li>
+				<ul class="myUL" id="groupUL">
+					<li><a id="all-contact">Tất cả</a></li>
 					<?php
 						foreach ($groups as $g) {
-						  echo '<li><a class="nhom">'.$g['tennhom'].'</a></li>';
+						  echo '<li><a class="nhom" nhom="'.$g['manhom'].'">'.$g['tennhom'].'</a></li>';
 						}
 					?>
 				</ul>
@@ -36,7 +36,7 @@
 				<ul class="myUL" id="contactUL">
 					<?php
 					foreach ($contacts as $c) {
-					  echo '<li><a malienlac='.$c['malienlac'].'>'.$c['hoten'].'</a></li>';
+					  echo '<li manhom='.$c['manhom'].'><a malienlac='.$c['malienlac'].'>'.$c['hoten'].'</a></li>';
 					}
 					?>
 				</ul>
@@ -70,13 +70,13 @@
 							<label class="detail-label">Tên nhóm: </label>
 						</div>
 						<div class="col-sm-8">
-							<input class="form-control" type="text">
+							<input class="form-control" id="new-group" type="text">
 						</div>
 					</div>
 				</form>
 	        </div>
         	<div class="modal-footer">
-        		<button type="button" class="btn btn-primary">Chấp nhận</button>
+        		<button type="button" class="btn btn-primary" id="addGroupBtn">Chấp nhận</button>
         		<button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
         	</div>
     	</div>
