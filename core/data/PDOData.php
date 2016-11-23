@@ -47,7 +47,6 @@
 		*/
 		public function doSql($sql) {
 		    $count = 0;
-		    echo $sql;
 			try {
 				$count = $this->db->exec($sql);
 				echo $count;
