@@ -1,13 +1,13 @@
-<!-- Modal Add -->
-<div class="modal fade" id="modalAdd" role="dialog">
+<!-- Modal Edit -->
+<div class="modal fade" id="modalEdit" role="dialog">
     <div class="modal-dialog modal-lg">
     	<div class="modal-content">
         	<div class="modal-header">
 	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
-	        	<h2 class="modal-title">Thêm liên lạc</h2>
+	        	<h2 class="modal-title">Chỉnh Sửa</h2>
 	        </div>
 	        <div class="modal-body">
-	        	<form class="form" id="add" method="post" action="">
+	        	<form class="form" id="edit" method="post" action="">
 					<div class="row">
 						<div class="col-sm-2">
 							<label class="detail-label">Họ tên: </label>
@@ -73,8 +73,8 @@
 						<div class="col-sm-2">
 							<select class="form-control">
 								<?php
-									foreach ($phoneTypes as $t) {
-									  echo '<option manhom='.$t['maloai'].'>'.$t['tenloai'].'</option>';
+									foreach ($groups as $g) {
+									  echo '<option manhom='.$g['manhom'].'>'.$g['tennhom'].'</option>';
 									}
 								?>
 							</select>
@@ -93,34 +93,12 @@
 							<textarea class="form-control" rows="3" id="note"></textarea>
 						</div>
 					</div>
-    			</form>
+				</form>
 	        </div>
         	<div class="modal-footer">
-        		<button type="button" class="btn btn-primary" id="addContactBtn">Chấp nhận</button>
+        		<button type="button" class="btn btn-primary">Cập nhật</button>
         		<button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
         	</div>
     	</div>
-    </div>
-    <div style="display:none" id="phone-hidden">
-    	<div class="addPhoneForm">
-			<div class="col-sm-6 col-sm-offset-2">
-				<input class="form-control" type="text" name="hoten" id="hoten">
-			</div>
-			<div class="col-sm-1">
-				<label class="detail-label" for="hoten">Loại: </label>
-			</div>
-			<div class="col-sm-2">
-				<select class="form-control">
-					<?php
-						foreach ($phoneTypes as $t) {
-						  echo '<option manhom='.$t['maloai'].'>'.$t['tenloai'].'</option>';
-						}
-					?>
-				</select>
-			</div>
-			<div class="col-sm-1">
-				<a class="deletePhone">Xóa</a>
-			</div>
-		</div>
     </div>
 </div>

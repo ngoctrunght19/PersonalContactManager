@@ -43,6 +43,12 @@
           return $c;
         }
 
+        public function getPhoneType() {
+          $db = new PDOData();
+          $c = $db->doQuery("select * from loaisdt");
+          return $c;
+        }
+
         public function getSDT($id) {
           $db = new PDOData();
           $c = $db->doQuery("select sdt.sdt, lsdt.tenloai as loaisdt from sodienthoai sdt

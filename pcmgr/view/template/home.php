@@ -83,109 +83,12 @@
     </div>
 </div>
 
-<!-- Modal Add -->
-<div class="modal fade" id="modalAdd" role="dialog">
-    <div class="modal-dialog modal-lg">
-    	<div class="modal-content">
-        	<div class="modal-header">
-	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
-	        	<h2 class="modal-title">Thêm liên lạc</h2>
-	        </div>
-	        <div class="modal-body">
-	        	<form class="form" id="add" method="post" action="">
-					<div class="row">
-						<div class="col-sm-2">
-							<label class="detail-label">Họ tên: </label>
-						</div>
-						<div class="col-sm-6">
-							<input class="form-control" type="text">
-						</div>
-						<div class="col-sm-1">
-							<label class="detail-label">Nhóm: </label>
-						</div>
-						<div class="col-sm-2">
-							<select class="form-control">
-								<option>Gia đình</option>
-								<option>Bạn bè</option>
-								<option>Đối tác</option>
-							</select>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-2">
-							<label class="detail-label">Ngày sinh: </label>
-						</div>
-						<div class="col-sm-6">
-							<input class="form-control" type="text">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-2">
-							<label class="detail-label">Email: </label>
-						</div>
-						<div class="col-sm-6">
-							<input class="form-control" type="text">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-2">
-							<label class="detail-label">Địa chỉ: </label>
-						</div>
-						<div class="col-sm-6">
-							<input class="form-control" type="text">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-2">
-							<label class="detail-label">Nickname: </label>
-						</div>
-						<div class="col-sm-6">
-							<input class="form-control" type="text">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-2">
-							<label class="detail-label">Số điện thoại: </label>
-						</div>
-						<div class="col-sm-6">
-							<input class="form-control" type="text">
-						</div>
-						<div class="col-sm-1">
-							<label class="detail-label">Loại: </label>
-						</div>
-						<div class="col-sm-2">
-							<select class="form-control">
-								<option>Nhà Riêng</option>
-								<option>Di động</option>
-							</select>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-10 col-sm-offset-2">
-							<a class="addPhone">Thêm số điện thoại</a>
-						</div>
-						</div>
-					<div class="row">
-						<div class="col-sm-2">
-							<label class="detail-label">Ghi chú: </label>
-						</div>
-						<div class="col-sm-6">
-							<textarea class="form-control" rows="3" id="note"></textarea>
-						</div>
-					</div>
-    			</form>
-	        </div>
-        	<div class="modal-footer">
-        		<button type="button" class="btn btn-primary">Chấp nhận</button>
-        		<button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
-        	</div>
-    	</div>
-    </div>
-</div>
+<?php
+include("pcmgr/view/template/add-modal.php");
+?>
 
-<?php 
-	// Modal
-    include('pcmgr/view/template/add-modal.php');
+<?php
+include("pcmgr/view/template/edit-modal.php");
 ?>
 
 

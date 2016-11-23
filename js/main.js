@@ -3,6 +3,7 @@ var groups;
 var clone = false;
 
 $(document).ready(function(){
+
 	var browserHeight = window.innerHeight; //lấy chiều cao khung trình duyệt trên các trình duyệt khác
 	var ContentHeight = browserHeight - 150;//tính chiều cao cho phần nội dung
 	$('.listbox').css({"height": ContentHeight});
@@ -47,8 +48,9 @@ $(document).ready(function(){
 	// 	$(this).parent().parent().prepend(textbox);
 	// });
 	$('body').on('click', 'a.addPhone', function() {
-		var textbox = '<div><div class="col-sm-6 col-sm-offset-2"><input class="form-control" type="text" name="hoten" id="hoten"></div><div class="col-sm-1"><label class="detail-label" for="hoten">Loại: </label></div><div class="col-sm-2"><select class="form-control"><option>Nhà Riêng</option><option>Di động</option></select></div><div class="col-sm-1"><a class="deletePhone">Xóa</a></div></div>';
-		$(this).parent().parent().prepend(textbox);
+		var addPhone = $('#phone-hidden .addPhoneForm').clone();
+	//	addPhone = addPhone.clone();
+		$(this).parent().parent().prepend(addPhone);
 	});
 	//deletePhone
 	$('body').on('click', 'a.deletePhone', function() {
@@ -95,6 +97,7 @@ $(document).ready(function(){
 		console.log('test');
 	});
 
+	// add group 
 	$('body').on('click', '#addGroupBtn', function () { 
 		var newGroup = $('#new-group').val();
 		newGroup = newGroup.trim();
@@ -107,6 +110,20 @@ $(document).ready(function(){
     		}
     	}
     	var url = "index.php?action=addgroup&newgroup=" + newGroup;
+		console.log(url);
+		$.get(url, function(data, status){
+			console.log("done");
+			var newDoc = document.open("text/html", "replace");
+			newDoc.write(data);
+			newDoc.close();
+	    });
+
+	}); 
+
+	// add contact
+	$('body').on('click', '#addContactBtn', function () { 
+		
+    	var url = "index.php?action=test";
 		console.log(url);
 		$.get(url, function(data, status){
 			console.log("done");

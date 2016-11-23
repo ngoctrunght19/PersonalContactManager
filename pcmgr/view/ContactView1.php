@@ -17,6 +17,16 @@ class ContactView1 {
 
         $helper->show();
     }
+
+    public static function foo() {
+        $helper = new View_Loader();
+
+        $data = array();
+
+        $helper->loadTwoView('temp1', 'temp2');
+
+        $helper->show();
+    }
 }
 
 ?>
