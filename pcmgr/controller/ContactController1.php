@@ -58,7 +58,7 @@ class ContactController1 {
         }
     }
 
-    public function createData() {
+    public function setNullData() {
         if(!isset($_GET['hoten']) || empty($_GET['hoten'])) { $_GET['hoten'] = null; }
         if(!isset($_GET['manhom']) || empty($_GET['nhom'])) { $_GET['nhom'] = null; }
         if(!isset($_GET['nickname']) || empty($_GET['nickname'])) { $_GET['nickname'] = null; }
