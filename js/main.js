@@ -1,5 +1,6 @@
 var temp;
 var groups;
+var preContact = null;
 var clone = false;
 
 $(document).ready(function(){
@@ -33,6 +34,9 @@ $(document).ready(function(){
 	});
 
 	$("#contactUL a").click(function(event){
+		$(this).css("background-color", "#eee");
+		if(preContact != null) preContact.css("background-color", "#fff");
+		preContact = $(this);
 		var mall = $(this).attr("malienlac");
 		console.log(mall);
 		var url = "index.php?mll=" + mall;
