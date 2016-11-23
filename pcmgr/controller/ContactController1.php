@@ -58,7 +58,19 @@ class ContactController1 {
         }
     }
 
+    public function createData() {
+        if(!isset($_GET['hoten']) || empty($_GET['hoten'])) { $_GET['hoten'] = null; }
+        if(!isset($_GET['manhom']) || empty($_GET['nhom'])) { $_GET['nhom'] = null; }
+        if(!isset($_GET['nickname']) || empty($_GET['nickname'])) { $_GET['nickname'] = null; }
+        if(!isset($_GET['diachi']) || empty($_GET['diachi'])) { $_GET['diachi'] = null; }
+        if(!isset($_GET['ngaysinh']) || empty($_GET['ngaysinh'])) { $_GET['ngaysinh'] = null; }
+        if(!isset($_GET['ghichu']) || empty($_GET['ghichu'])) { $_GET['ghichu'] = null; }
+        if(!isset($_GET['email']) || empty($_GET['email'])) { $_GET['email'] = null; }
+    }
+
     public function addContact() {
+        $this->createData();
+
         if (isset($_GET["hoten"])) {
           $data = (object) [
             'hoten'    => $_GET["hoten"],
@@ -71,6 +83,9 @@ class ContactController1 {
             'sdt'      => $_GET['sdt'],
             'loai'     => $_GET['loai'],
           ];
+
+          var_dump($_GET["sdt"]);
+          var_dump($_GET["loai"]);
 
           $newContact = new Contact();
           $newContact->addContact($data);

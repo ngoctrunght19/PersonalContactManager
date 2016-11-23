@@ -17,17 +17,31 @@
         }
 
         public function addContact($data) {
+          var_dump($data);
           $db = new PDOData();
-          $db->doSql("insert into lienLac(hoten, manhom, ngaysinh, email, diachi, nickname, ghichu)
-                           values('$data->hoten',
-                                  '$data->manhom',
-                                  '$data->ngaysinh',
-                                  '$data->email',
-                                  '$data->diachi',
-                                  '$data->nickname',
-                                  '$data->ghichu')");
+          // $db->doSql("insert into lienLac(hoten, manhom, ngaysinh, email, diachi, nickname, ghichu)
+          //                  values('$data->hoten',
+          //                         '$data->manhom',
+          //                         '$data->ngaysinh',
+          //                         '$data->email',
+          //                         '$data->diachi',
+          //                         '$data->nickname',
+          //                         '$data->ghichu')");
+          $stmt = $db->prepare("INSERT INTO lienlac (hoten, manhom, ngaysinh, email, diachi, nickname, ghichu) VALUES (:hoten, :manhom, :ngaysinh, :email, :diachi, :nickname, :ghichu)");
+
+          $stmt->bindParam(':hoten', $data->hoten,  PDO::PARAM_STR);
+          $stmt->bindParam(':nickname', $data->nickname,  PDO::PARAM_STR);
+          $stmt->bindParam(':manhom', $data->manhom,  PDO::PARAM_STR);
+          $stmt->bindParam(':diachi', $data->diachi,  PDO::PARAM_STR);
+          $stmt->bindParam(':ngaysinh', $data->ngaysinh,  PDO::PARAM_STR);
+          $stmt->bindParam(':email', $data->email,  PDO::PARAM_STR);
+          $stmt->bindParam(':ghichu', $data->ghichu,  PDO::PARAM_STR);
+          echo $stmt->errorCode();
+          $value = $stmt->execute();
 
           $id = $db->doQuery("select malienlac from lienlac where hoten ='$data->hoten'");
+          echo "id: ";
+          var_dump($id);
           $sdtLength = count($data->sdt);
 
           for ($i= 0; $i< $sdtLength; $i++) {
