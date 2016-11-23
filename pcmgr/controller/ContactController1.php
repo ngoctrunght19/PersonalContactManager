@@ -49,8 +49,12 @@ class ContactController1 {
     }
 
     public function proc() {
-
-        if (isset($_GET["mll"])) {
+        if ( isset($_GET['action']) && $_GET['action']=="del" && isset($_GET["mll"]) ) {
+          $contactData = new Contact();
+          $contactData->delContact($_GET["mll"]);
+      //    return;
+        } 
+        else if (isset($_GET["mll"])) {
     
           $id = $_GET["mll"];
           $contactData = new Contact();

@@ -1,4 +1,5 @@
 var temp;
+var groups;
 
 $(document).ready(function(){
 	var browserHeight = window.innerHeight; //lấy chiều cao khung trình duyệt trên các trình duyệt khác
@@ -57,4 +58,23 @@ $(document).ready(function(){
     $('body').on('hide.bs.modal', '.modal', function () { 
 		$(this).replaceWith(temp);
 	}); 
+
+	$('body').on('click', '#delete-contact', function () { 
+		var malienlac = $(this).attr("malienlac");
+		console.log(malienlac);
+		var url = "index.php?action=del&mll=" + malienlac;
+		console.log(url);
+		$.get(url, function(data, status){
+	//        alert("Data: " + data + "\nStatus: " + status);
+	//		$("body").html(data);
+			var newDoc = document.open("text/html", "replace");
+			newDoc.write(data);
+			newDoc.close();
+	    });
+	}); 
+
+	$('#addGroupBtn').click(function(event) {
+		groups = $('.nhom');
+		console.log('test');
+	});
 });

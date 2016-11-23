@@ -69,4 +69,15 @@
 
         }
 
+        public function delContact($id) {
+          $db = new PDOData();
+          try {
+            $c = $db->doSql("delete from lienlac 
+                            where malienlac='$id'");
+          } catch(Exception $e)
+          {
+              echo($e->getMessage());
+          }
+        }
+
     }
