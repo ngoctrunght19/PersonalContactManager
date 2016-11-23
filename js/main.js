@@ -1,5 +1,6 @@
 var temp;
 var groups;
+var clone = false;
 
 $(document).ready(function(){
 	var browserHeight = window.innerHeight; //lấy chiều cao khung trình duyệt trên các trình duyệt khác
@@ -44,11 +45,17 @@ $(document).ready(function(){
 	$('body').on('click', '[data-target="#modalEdit"]', function() {
 		temp = $('#modalEdit').clone();
 		console.log(temp);
+		clone = true;
     });
 
     $('body').on('click', '[data-target="#modalAdd"]', function() {
 		temp = $('#modalAdd').clone();
-		console.log(temp);
+		clone = true;
+    });
+
+    $('body').on('click', '[data-target="#modalAddGroup"]', function() {
+		temp = $('#modalAddGroup').clone();
+		clone = true;
     });
 
  //    $('#modal-content').on('shown.bs.modal', function() {
@@ -56,7 +63,11 @@ $(document).ready(function(){
 	// })
 
     $('body').on('hide.bs.modal', '.modal', function () { 
-		$(this).replaceWith(temp);
+    	console.log('clone: ' + clone);
+    	if (clone)
+			$(this).replaceWith(temp);
+		clone = false;
+		console.log($(this));
 	}); 
 
 	$('body').on('click', '#delete-contact', function () { 
@@ -74,7 +85,7 @@ $(document).ready(function(){
 	}); 
 
 	$('#addGroupBtn').click(function(event) {
-		groups = $('.nhom');
+	//	groups = $('.nhom');
 		console.log('test');
 	});
 });
