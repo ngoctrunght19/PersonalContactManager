@@ -67,7 +67,9 @@ class ContactController1 {
             'email'    => $_GET["email"],
             'diachi'   => $_GET["diachi"],
             'nickname' => $_GET["nickname"],
-            'ghichu'   => $_GET["ghichu"]
+            'ghichu'   => $_GET["ghichu"],
+            'sdt'      => $_GET['sdt'],
+            'loai'     => $_GET['loai'],
           ];
 
           $newContact = new Contact();

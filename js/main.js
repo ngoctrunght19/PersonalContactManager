@@ -127,9 +127,10 @@ $(document).ready(function(){
 		var email    = $('#email').val();
 		var diachi   = $('#diachi').val();
 		var nickname = $('#nickname').val();
-		var sdt      = $('#sdt').val();
+		var sdt      = $('#modalAdd .sdt');
+		var loai     = $('#modalAdd .loai');
 		var ghichu   = $('#ghichu').val();
-		var manhom     = $('#nhom').val();
+		var manhom   = $('#nhom').val();
 
     var url = "index.php?action=addcontact"
 							 + "&hoten=" + hoten
@@ -139,6 +140,10 @@ $(document).ready(function(){
 							 + "&diachi=" + diachi
 							 + "&nickname= " + nickname
 							 + "&ghichu=" + ghichu;
+
+		for (var i =0; i< sdt.length -1; i++){  // sdt.length -1 ko tinh clone
+			url += "&sdt[]=" + sdt[i].value + "&loai[]=" + loai[i].value;
+		};
 
 		console.log(url);
 		$.get(url, function(data, status){

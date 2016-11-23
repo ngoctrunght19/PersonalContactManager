@@ -65,16 +65,16 @@
 							<label class="detail-label">Số điện thoại: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text" id="sdt">
+							<input class="form-control sdt" type="text" >
 						</div>
 						<div class="col-sm-1">
 							<label class="detail-label">Loại: </label>
 						</div>
 						<div class="col-sm-2">
-							<select class="form-control" id="loai">
+							<select class="form-control loai" >
 								<?php
 									foreach ($phoneTypes as $t) {
-									  echo '<option manhom='.$t['maloai'].'>'.$t['tenloai'].'</option>';
+									  echo '<option value='.$t['maloai'].'>'.$t['tenloai'].'</option>';
 									}
 								?>
 							</select>
@@ -104,16 +104,16 @@
     <div style="display:none" id="phone-hidden">
     	<div class="addPhoneForm">
 			<div class="col-sm-6 col-sm-offset-2">
-				<input class="form-control" type="text">
+				<input class="form-control sdt a" type="text">
 			</div>
 			<div class="col-sm-1">
 				<label class="detail-label" for="hoten">Loại: </label>
 			</div>
 			<div class="col-sm-2">
-				<select class="form-control">
+				<select class="form-control loai">
 					<?php
 						foreach ($phoneTypes as $t) {
-						  echo '<option manhom='.$t['maloai'].'>'.$t['tenloai'].'</option>';
+						  echo '<option value='.$t['maloai'].'>'.$t['tenloai'].'</option>';
 						}
 					?>
 				</select>

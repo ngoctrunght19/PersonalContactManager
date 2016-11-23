@@ -18,7 +18,7 @@
 
         public function addContact($data) {
           $db = new PDOData();
-          $c = $db->doSql("insert into lienLac(hoten, manhom, ngaysinh, email, diachi, nickname, ghichu)
+          $db->doSql("insert into lienLac(hoten, manhom, ngaysinh, email, diachi, nickname, ghichu)
                            values('$data->hoten',
                                   '$data->manhom',
                                   '$data->ngaysinh',
@@ -26,7 +26,15 @@
                                   '$data->diachi',
                                   '$data->nickname',
                                   '$data->ghichu')");
-          return $c;
+
+          $id = $db->doQuery("select malienlac from lienlac where hoten ='$data->hoten'");
+          $sdtLength = count($data->sdt);
+
+          for ($i= 0; $i< $sdtLength; $i++) {
+            $db->doSql("insert into sodienthoai(sdt, malienlac, loaisdt)
+                        values( ".$data->sdt[$i].",".$id[0]['malienlac'].",".$data->loai[$i].")");
+          }
+
         }
 
         public function getContactById($id) {
@@ -83,13 +91,11 @@
 
         public function delContact($id) {
           $db = new PDOData();
-          try {
-            $c = $db->doSql("delete from lienlac
-                            where malienlac='$id'");
-          } catch(Exception $e)
-          {
-              echo($e->getMessage());
-          }
+          $db->doSql("delete from sodienthoai
+                     where malienlac='$id'");
+          $db->doSql("delete from lienlac
+                      where malienlac='$id'");
+
         }
 
     }
