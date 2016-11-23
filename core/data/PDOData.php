@@ -56,4 +56,8 @@
 			}
 			return $count;
 		}
+
+		public function prepare($stmt) {
+			return $this->db->prepare($stmt);
+		}
 	}
