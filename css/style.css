@@ -23,9 +23,6 @@
 	text-decoration: none;
 	color: #000;
 }
-.myUL li a:hover {
-	background-color: #eee;
-}
 .form .row {
 	margin-top: 3px;
 }

@@ -20,12 +20,12 @@ $(document).ready(function(){
 	});
 
 	var preContact = null;
-	var preGroup = null;
+	var preGroup = $("#groupUL a").first();
 
-	$("#groupUL a").first().css("background-color", "#eee");;
+	preGroup.css("background-color", "#ddd");;
 
 	$('body').on('click', '#groupUL a', function() {
-		$(this).css("background-color", "#eee");
+		$(this).css("background-color", "#ddd");
 		if(preGroup != null) preGroup.css("background-color", "#fff");
 		preGroup = $(this);
 
@@ -42,9 +42,10 @@ $(document).ready(function(){
 	});
 
 	$("#contactUL a").click(function(event){
-		$(this).css("background-color", "#eee");
+		$(this).css("background-color", "#ddd");
 		if(preContact != null) preContact.css("background-color", "#fff");
 		preContact = $(this);
+
 		var mall = $(this).attr("malienlac");
 		console.log(mall);
 		var url = "index.php?mll=" + mall;
