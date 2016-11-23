@@ -1,6 +1,5 @@
 var temp;
 var groups;
-var preContact = null;
 var clone = false;
 
 $(document).ready(function(){
@@ -20,7 +19,16 @@ $(document).ready(function(){
 	    });
 	});
 
+	var preContact = null;
+	var preGroup = null;
+
+	$("#groupUL a").first().css("background-color", "#eee");;
+
 	$('body').on('click', '#groupUL a', function() {
+		$(this).css("background-color", "#eee");
+		if(preGroup != null) preGroup.css("background-color", "#fff");
+		preGroup = $(this);
+
 		if ($(this).attr('id') == "all-contact") {
 			$('#contactUL li').show();
 			console.log("hello");
