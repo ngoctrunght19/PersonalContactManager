@@ -32,10 +32,12 @@
           $stmt->bindParam(':ghichu', $data->ghichu,  PDO::PARAM_STR);
 
           $value = $stmt->execute();
+          echo $stmt->errorCode();
 
           $id = $db->doQuery("select malienlac from lienlac where hoten ='$data->hoten'");
           
           $sdtLength = count($data->sdt);
+
 
           for ($i= 0; $i< $sdtLength; $i++) {
             $db->doSql("insert into sodienthoai(sdt, malienlac, loaisdt)
