@@ -75,16 +75,14 @@
             return;
           }
 
-          $ids = $db->doQuery("select malienlac from lienlac where hoten ='$data->hoten'");
-          $malienlac = $ids[0]['malienlac'];
-          $oldPhone = $db->doQuery("select * from sodienthoai where malienlac =$malienlac");
+          $oldPhone = $db->doQuery("select * from sodienthoai where malienlac =$data->malienlac");
           
           $sdtLength = count($data->sdt);
           var_dump($data->sdt);
           $oldLength = count($oldPhone);
           $exited = false;
           for ($i = 0; $i < $sdtLength; $i++) {
-            echo "$i: " . $i . '<br>';
+            $exited = false;
             for ($j = 0; $j < $oldLength; $j++) {
               if ($oldPhone[$j]['sdt'] == $data->sdt[$i]) { // giống sdt cũ
                 if ($oldPhone[$j]['loaisdt'] != $data->loai[$i]) {  // khác loại
@@ -100,7 +98,7 @@
             if ( !$exited ) { // số điện thoại chưa tồn tại
               echo 'add phone';
               $db->doSql("insert into sodienthoai(sdt, malienlac, loaisdt)
-                        values( ".$data->sdt[$i].",".$malienlac.",".$data->loai[$i].")");
+                        values( ".$data->sdt[$i].",".$data->malienlac.",".$data->loai[$i].")");
             } else 
               echo 'exited<br>';
           }
