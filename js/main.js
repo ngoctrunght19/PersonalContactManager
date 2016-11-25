@@ -52,17 +52,12 @@ $(document).ready(function(){
 		var url = "index.php?mll=" + mall;
 		console.log(url);
 		$.get(url, function(data, status){
-	//        alert("Data: " + data + "\nStatus: " + status);
 			$("#contact-info").html(data);
 	    });	
 	});
-	//addPhone
-	// $(".addPhone").click(function(){
-	// 	var textbox = '<div><div class="col-sm-6 col-sm-offset-2"><input class="form-control" type="text" name="hoten" id="hoten"></div><div class="col-sm-1"><label class="detail-label" for="hoten">Loại: </label></div><div class="col-sm-2"><select class="form-control"><option>Nhà Riêng</option><option>Di động</option></select></div><div class="col-sm-1"><a class="deletePhone">Xóa</a></div></div>';
-	// 	$(this).parent().parent().prepend(textbox);
-	// });
+
+	
 	$('body').on('click', 'a.addPhone', function() {
-		console.log("add phone");
 		var addPhone = $('#phone-hidden .addPhoneForm').clone();
 	//	addPhone = addPhone.clone();
 		$(this).parent().parent().before(addPhone);
@@ -148,7 +143,7 @@ $(document).ready(function(){
 		var ghichu   = $('#ghichu').val();
 		var manhom   = $('#nhom').val();
 
-    var url = "index.php?action=addcontact"
+    	var url = "index.php?action=addcontact"
 							 + "&hoten=" + hoten
 							 + "&manhom=" + manhom
 							 + "&ngaysinh=" + ngaysinh
@@ -182,19 +177,21 @@ $(document).ready(function(){
 		var loai     = $('#modalEdit .loai');
 		var ghichu   = $('#e-ghichu').val();
 		var manhom   = $('#e-nhom').val();
-		alert(manhom);
-		return;
+		var malienlac = $('#delete-contact').attr('malienlac');
+
+		console.log("sdt: " + sdt);
 
     	var url = "index.php?action=edit"
-							 + "&hoten=" + hoten
-							 + "&manhom=" + manhom
-							 + "&ngaysinh=" + ngaysinh
-							 + "&email=" + email
-							 + "&diachi=" + diachi
-							 + "&nickname= " + nickname
-							 + "&ghichu=" + ghichu;
+    								+ "&malienlac=" + malienlac
+									+ "&hoten=" + hoten
+									+ "&manhom=" + manhom
+									+ "&ngaysinh=" + ngaysinh
+									+ "&email=" + email
+									+ "&diachi=" + diachi
+									+ "&nickname=" + nickname
+									+ "&ghichu=" + ghichu;
 
-		for (var i =0; i< sdt.length -1; i++){  // sdt.length -1 ko tinh clone
+		for (var i = 0; i< sdt.length; i++){  // sdt.length -1 ko tinh clone
 			url += "&sdt[]=" + sdt[i].value + "&loai[]=" + loai[i].value;
 		};
 
@@ -212,6 +209,7 @@ $(document).ready(function(){
 		$('#e-hoten').val($('#i-hoten').text());
 		$('#e-ngaysinh').val($('#i-ngaysinh').text());
 		$('#e-nickname').val($('#i-nickname').text());
+		console.log("nickname: " + $('#i-nickname').text())
 		$('#e-ghichu').val($('#i-ghichu').text());
 		$('#e-diachi').val($('#i-diachi').text());
 		$('#e-email').val($('#i-email').text());
@@ -228,13 +226,10 @@ $(document).ready(function(){
 		var eSDT = $('#modalEdit .sdt');
 		var eLoai = $('#modalEdit .loai');
 
-		console.log(eLoai[0]);
 
-		eLoai[sdt.length-1].value = 1;
 		for(var i = 0; i < sdt.length; i++) {
 			eSDT[i].value = sdt[i].innerText;
 			eLoai[i].value = loai[i].getAttribute("masdt");
-			console.log(sdt[i].innerText + " ---- " + loai[i].getAttribute("masdt"));
 		}
 	}
 

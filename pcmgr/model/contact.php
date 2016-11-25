@@ -51,7 +51,7 @@
          
           $stmt = $db->prepare("UPDATE lienlac set 
                                 hoten=:hoten, manhom=:manhom, ngaysinh=:ngaysinh, email=:email, 
-                                diachi=:diachi, nickname=nickname, ghichu=:ghichu
+                                diachi=:diachi, nickname=:nickname, ghichu=:ghichu
                                 where malienlac=:malienlac");
 
           $stmt->bindParam(':hoten', $data->hoten,  PDO::PARAM_STR);
@@ -61,16 +61,60 @@
           $stmt->bindParam(':ngaysinh', $data->ngaysinh,  PDO::PARAM_STR);
           $stmt->bindParam(':email', $data->email,  PDO::PARAM_STR);
           $stmt->bindParam(':ghichu', $data->ghichu,  PDO::PARAM_STR);
+          $stmt->bindParam(':malienlac', $data->malienlac,  PDO::PARAM_STR);
 
-          $value = $stmt->execute();
+          try {
+            $value = $stmt->execute();
 
-          $id = $db->doQuery("select malienlac from lienlac where hoten ='$data->hoten'");
+            if (!$value) {
+              echo $stmt->errorCode();
+              return;
+            }
+          } catch(PDOException $ex) { 
+            echo $ex->getMessage(); 
+            return;
+          }
+
+          $ids = $db->doQuery("select malienlac from lienlac where hoten ='$data->hoten'");
+          $malienlac = $ids[0]['malienlac'];
+          $oldPhone = $db->doQuery("select * from sodienthoai where malienlac =$malienlac");
           
           $sdtLength = count($data->sdt);
+          var_dump($data->sdt);
+          $oldLength = count($oldPhone);
+          $exited = false;
+          for ($i = 0; $i < $sdtLength; $i++) {
+            echo "$i: " . $i . '<br>';
+            for ($j = 0; $j < $oldLength; $j++) {
+              if ($oldPhone[$j]['sdt'] == $data->sdt[$i]) { // giống sdt cũ
+                if ($oldPhone[$j]['loaisdt'] != $data->loai[$i]) {  // khác loại
+                  // cập nhật loại
+                  $db->doSql("update sodienthoai set loaisdt=".$data->loai[$i]."
+                              where masdt=".$oldPhone[$j]['masdt']);
+                }
+                $oldPhone[$i]["1"] = '1';
+                $exited = true;
+                break;
+              }
+            }
+            if ( !$exited ) { // số điện thoại chưa tồn tại
+              echo 'add phone';
+              $db->doSql("insert into sodienthoai(sdt, malienlac, loaisdt)
+                        values( ".$data->sdt[$i].",".$malienlac.",".$data->loai[$i].")");
+            } else 
+              echo 'exited<br>';
+          }
 
+          for ($i= 0; $i< $oldLength; $i++) {
+            if (!isset($oldPhone[$i]["1"])) {
+                $db->doSql("delete from sodienthoai 
+                            where masdt=".$oldPhone[$i]["masdt"]);
+            }
+          }
+          
           for ($i= 0; $i< $sdtLength; $i++) {
-            $db->doSql("insert into sodienthoai(sdt, malienlac, loaisdt)
-                        values( ".$data->sdt[$i].",".$id[0]['malienlac'].",".$data->loai[$i].")");
+        //    $db->doSql("insert into sodienthoai(sdt, malienlac, loaisdt)
+        //                values( ".$data->sdt[$i].",".$id[0]['malienlac'].",".$data->loai[$i].")");
           }
 
         }

@@ -28,7 +28,7 @@
 		<label class="detail-label">Ngày sinh: </label>
 	</div>
 	<div class="col-sm-10">
-		<p class="detail-text" id="i-ngaysinh"><?php echo $info[0]['ngaysinh'] ?></p>
+		<p class="detail-text" id="i-ngaysinh"><?php echo $info[0]['ngaysinh']; ?></p>
 	</div>
 </div>
 <div class="row">
@@ -36,7 +36,7 @@
 		<label class="detail-label">Email: </label>
 	</div>
 	<div class="col-sm-10">
-		<p class="detail-text" id="i-email"><?php echo $info[0]['email'] ?></p>
+		<p class="detail-text" id="i-email"><?php echo $info[0]['email']; ?></p>
 	</div>
 </div>
 <div class="row">
@@ -44,7 +44,7 @@
 		<label class="detail-label">Địa chỉ: </label>
 	</div>
 	<div class="col-sm-10">
-		<p class="detail-text" id="i-diachi"><?php echo $info[0]['diachi'] ?></p>
+		<p class="detail-text" id="i-diachi"><?php echo $info[0]['diachi']; ?></p>
 	</div>
 </div>
 <div class="row">
@@ -52,7 +52,7 @@
 		<label class="detail-label">Nickname: </label>
 	</div>
 	<div class="col-sm-10">
-		<p class="detail-text" id="i-nickname"><?php echo $info[0]['nickname'] ?></p>
+		<p class="detail-text" id="i-nickname"><?php echo $info[0]['nickname']; ?></p>
 	</div>
 </div>
 <div class="row">
@@ -81,7 +81,7 @@
 		<label class="detail-label">Ghi chú: </label>
 	</div>
 	<div class="col-sm-10">
-		<p class="detail-text" id="i-ghichu"><?php echo $info[0]['ghichu'] ?></p>
+		<p class="detail-text" id="i-ghichu"><?php echo $info[0]['ghichu']; ?></p>
 	</div>
 </div>
 <div class="row">

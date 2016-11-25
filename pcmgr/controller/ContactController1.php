@@ -24,8 +24,6 @@ class ContactController1 {
         $this->helper->load('contact-view', $data);
 
         $this->helper->show();
-
-
     }
 
     public function homeLoad() {
@@ -66,6 +64,8 @@ class ContactController1 {
         if(!isset($_GET['ngaysinh']) || empty($_GET['ngaysinh'])) { $_GET['ngaysinh'] = null; }
         if(!isset($_GET['ghichu']) || empty($_GET['ghichu'])) { $_GET['ghichu'] = null; }
         if(!isset($_GET['email']) || empty($_GET['email'])) { $_GET['email'] = null; }
+        if(!isset($_GET['loai']) || empty($_GET['loai'])) { $_GET['loai'] = Array(); }
+        if(!isset($_GET['sdt']) || empty($_GET['sdt'])) { $_GET['sdt'] = Array(); }
     }
 
     public function addContact() {
@@ -84,16 +84,13 @@ class ContactController1 {
             'loai'     => $_GET['loai'],
           ];
 
-          var_dump($_GET["sdt"]);
-          var_dump($_GET["loai"]);
-
           $newContact = new Contact();
           $newContact->addContact($data);
         }
     }
 
     public function editContact() {
-        $this->createData();
+        $this->setNullData();
 
         if (isset($_GET["hoten"])) {
           $data = (object) [
@@ -106,10 +103,9 @@ class ContactController1 {
             'ghichu'   => $_GET["ghichu"],
             'sdt'      => $_GET['sdt'],
             'loai'     => $_GET['loai'],
+            'malienlac' => $_GET['malienlac']
           ];
 
-          var_dump($_GET["sdt"]);
-          var_dump($_GET["loai"]);
 
           $newContact = new Contact();
           $newContact->editContact($data);

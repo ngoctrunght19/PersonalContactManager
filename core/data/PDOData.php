@@ -9,6 +9,7 @@
 			try {
 			    /* Ket noi CSDL */
 				$this->db = new PDO("mysql:host=localhost;dbname=personalcontact;", "root", "");
+				$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			} catch(PDOException $ex) { echo $ex->getMessage();	}
 		}
 
