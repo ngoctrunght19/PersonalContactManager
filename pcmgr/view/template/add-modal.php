@@ -33,7 +33,7 @@
 							<label class="detail-label">Ngày sinh: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text" id="ngaysinh">
+							<input class="form-control" type="text" id="ngaysinh" placeholder="yyyy-mm-dd">
 						</div>
 					</div>
 					<div class="row">
@@ -102,7 +102,7 @@
     	</div>
     </div>
     <div style="display:none" id="phone-hidden">
-    	<div class="addPhoneForm">
+    	<div class="addPhoneForm row">
 			<div class="col-sm-6 col-sm-offset-2">
 				<input class="form-control sdt a" type="text">
 			</div>

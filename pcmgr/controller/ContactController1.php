@@ -69,7 +69,7 @@ class ContactController1 {
     }
 
     public function addContact() {
-        $this->createData();
+        $this->setNullData();
 
         if (isset($_GET["hoten"])) {
           $data = (object) [
@@ -89,6 +89,30 @@ class ContactController1 {
 
           $newContact = new Contact();
           $newContact->addContact($data);
+        }
+    }
+
+    public function editContact() {
+        $this->createData();
+
+        if (isset($_GET["hoten"])) {
+          $data = (object) [
+            'hoten'    => $_GET["hoten"],
+            'manhom'   => $_GET["manhom"],
+            'ngaysinh' => $_GET["ngaysinh"],
+            'email'    => $_GET["email"],
+            'diachi'   => $_GET["diachi"],
+            'nickname' => $_GET["nickname"],
+            'ghichu'   => $_GET["ghichu"],
+            'sdt'      => $_GET['sdt'],
+            'loai'     => $_GET['loai'],
+          ];
+
+          var_dump($_GET["sdt"]);
+          var_dump($_GET["loai"]);
+
+          $newContact = new Contact();
+          $newContact->editContact($data);
         }
     }
 
@@ -113,6 +137,9 @@ class ContactController1 {
         }
         else if ( isset($_GET['action']) && $_GET['action']=='addcontact') {
             $this->addContact();
+        }
+        else if ( isset($_GET['action']) && $_GET['action']=='edit' ) {
+            $this->editContact();
         }
 
         $this->homeLoad();

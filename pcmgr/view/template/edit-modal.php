@@ -7,22 +7,22 @@
 	        	<h2 class="modal-title">Chỉnh Sửa</h2>
 	        </div>
 	        <div class="modal-body">
-	        	<form class="form" id="edit" method="post" action="">
+	        	<form class="form" id="edit" method="post">
 					<div class="row">
 						<div class="col-sm-2">
 							<label class="detail-label">Họ tên: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" id="e-hoten">
 						</div>
 						<div class="col-sm-1">
 							<label class="detail-label">Nhóm: </label>
 						</div>
 						<div class="col-sm-2">
-							<select class="form-control">
+							<select class="form-control" id="e-nhom">
 								<?php
 									foreach ($groups as $g) {
-									  echo '<option manhom='.$g['manhom'].'>'.$g['tennhom'].'</option>';
+									  echo '<option value='.$g['manhom'].'>'.$g['tennhom'].'</option>';
 									}
 								?>
 							</select>
@@ -33,7 +33,7 @@
 							<label class="detail-label">Ngày sinh: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" id="e-ngaysinh">
 						</div>
 					</div>
 					<div class="row">
@@ -41,7 +41,7 @@
 							<label class="detail-label">Email: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" id="e-email">
 						</div>
 					</div>
 					<div class="row">
@@ -49,7 +49,7 @@
 							<label class="detail-label">Địa chỉ: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" id="e-diachi">
 						</div>
 					</div>
 					<div class="row">
@@ -57,7 +57,7 @@
 							<label class="detail-label">Nickname: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text">
+							<input class="form-control" type="text" id="e-nickname">
 						</div>
 					</div>
 					<div class="row">
@@ -65,16 +65,16 @@
 							<label class="detail-label">Số điện thoại: </label>
 						</div>
 						<div class="col-sm-6">
-							<input class="form-control" type="text">
+							<input class="form-control sdt" type="text">
 						</div>
 						<div class="col-sm-1">
 							<label class="detail-label">Loại: </label>
 						</div>
 						<div class="col-sm-2">
-							<select class="form-control">
+							<select class="form-control loai">
 								<?php
-									foreach ($groups as $g) {
-									  echo '<option manhom='.$g['manhom'].'>'.$g['tennhom'].'</option>';
+									foreach ($phoneTypes as $t) {
+									  echo '<option value='.$t['maloai'].'>'.$t['tenloai'].'</option>';
 									}
 								?>
 							</select>
@@ -90,13 +90,13 @@
 							<label class="detail-label">Ghi chú: </label>
 						</div>
 						<div class="col-sm-6">
-							<textarea class="form-control" rows="3" id="note"></textarea>
+							<textarea class="form-control" rows="3" id="e-ghichu"></textarea>
 						</div>
 					</div>
 				</form>
 	        </div>
         	<div class="modal-footer">
-        		<button type="button" class="btn btn-primary">Cập nhật</button>
+        		<button type="button" class="btn btn-primary" id="editContactBtn">Cập nhật</button>
         		<button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
         	</div>
     	</div>

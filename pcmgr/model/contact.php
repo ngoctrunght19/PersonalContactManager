@@ -12,21 +12,15 @@
 
         public function getAll() {
           $db = new PDOData();
-          $ret = $db->doQuery("select * from lienlac");
+          $ret = $db->doQuery("select lienlac.*, nhom.tennhom tennhom from lienlac
+                                inner join nhom on nhom.manhom=lienlac.manhom");
           return $ret;
         }
 
         public function addContact($data) {
-          var_dump($data);
+        
           $db = new PDOData();
-          // $db->doSql("insert into lienLac(hoten, manhom, ngaysinh, email, diachi, nickname, ghichu)
-          //                  values('$data->hoten',
-          //                         '$data->manhom',
-          //                         '$data->ngaysinh',
-          //                         '$data->email',
-          //                         '$data->diachi',
-          //                         '$data->nickname',
-          //                         '$data->ghichu')");
+    
           $stmt = $db->prepare("INSERT INTO lienlac (hoten, manhom, ngaysinh, email, diachi, nickname, ghichu) VALUES (:hoten, :manhom, :ngaysinh, :email, :diachi, :nickname, :ghichu)");
 
           $stmt->bindParam(':hoten', $data->hoten,  PDO::PARAM_STR);
@@ -36,12 +30,42 @@
           $stmt->bindParam(':ngaysinh', $data->ngaysinh,  PDO::PARAM_STR);
           $stmt->bindParam(':email', $data->email,  PDO::PARAM_STR);
           $stmt->bindParam(':ghichu', $data->ghichu,  PDO::PARAM_STR);
-          echo $stmt->errorCode();
+
           $value = $stmt->execute();
 
           $id = $db->doQuery("select malienlac from lienlac where hoten ='$data->hoten'");
-          echo "id: ";
-          var_dump($id);
+          
+          $sdtLength = count($data->sdt);
+
+          for ($i= 0; $i< $sdtLength; $i++) {
+            $db->doSql("insert into sodienthoai(sdt, malienlac, loaisdt)
+                        values( ".$data->sdt[$i].",".$id[0]['malienlac'].",".$data->loai[$i].")");
+          }
+
+        }
+
+
+        public function editContact($data) {
+          
+          $db = new PDOData();
+         
+          $stmt = $db->prepare("UPDATE lienlac set 
+                                hoten=:hoten, manhom=:manhom, ngaysinh=:ngaysinh, email=:email, 
+                                diachi=:diachi, nickname=nickname, ghichu=:ghichu
+                                where malienlac=:malienlac");
+
+          $stmt->bindParam(':hoten', $data->hoten,  PDO::PARAM_STR);
+          $stmt->bindParam(':nickname', $data->nickname,  PDO::PARAM_STR);
+          $stmt->bindParam(':manhom', $data->manhom,  PDO::PARAM_STR);
+          $stmt->bindParam(':diachi', $data->diachi,  PDO::PARAM_STR);
+          $stmt->bindParam(':ngaysinh', $data->ngaysinh,  PDO::PARAM_STR);
+          $stmt->bindParam(':email', $data->email,  PDO::PARAM_STR);
+          $stmt->bindParam(':ghichu', $data->ghichu,  PDO::PARAM_STR);
+
+          $value = $stmt->execute();
+
+          $id = $db->doQuery("select malienlac from lienlac where hoten ='$data->hoten'");
+          
           $sdtLength = count($data->sdt);
 
           for ($i= 0; $i< $sdtLength; $i++) {
@@ -66,7 +90,8 @@
 
         public function getContactById1($id) {
           $db = new PDOData();
-          $c = $db->doQuery("select * from lienlac
+          $c = $db->doQuery("select lienlac.*, nhom.tennhom tennhom from lienlac
+                              inner join nhom on nhom.manhom=lienlac.manhom
                              where malienlac=$id");
           return $c;
         }
@@ -79,7 +104,7 @@
 
         public function getSDT($id) {
           $db = new PDOData();
-          $c = $db->doQuery("select sdt.sdt, lsdt.tenloai as loaisdt from sodienthoai sdt
+          $c = $db->doQuery("select sdt.sdt, sdt.loaisdt as maloaisdt, lsdt.tenloai as loaisdt from sodienthoai sdt
                             inner join loaisdt lsdt on sdt.loaisdt=lsdt.maloai
                             where malienlac=$id");
           return $c;
