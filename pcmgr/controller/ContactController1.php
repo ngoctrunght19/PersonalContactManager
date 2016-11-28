@@ -107,9 +107,19 @@ class ContactController1 {
           ];
 
 
-          $newContact = new Contact();
-          $newContact->editContact($data);
+            $newContact = new Contact();
+            $newContact->editContact($data);
         }
+    }
+
+    public function getCall() {
+            
+        $id = $_GET['id'];
+        $contactData = new Contact();
+        
+
+        ContactView1::createCalls($info, $sdt);
+        return;
     }
 
     public function proc() {
@@ -125,7 +135,8 @@ class ContactController1 {
             $info = $contactData->getContactById1($id);
 
             $sdt = $contactData->getSDT($id);
-            ContactView1::createContactInfo($info, $sdt);
+            $calls = $contactData->getCalls($id);
+            ContactView1::createContactInfo($info, $sdt, $calls);
             return;
         }
         else if ( isset($_GET['action']) && $_GET['action']=="addgroup") {

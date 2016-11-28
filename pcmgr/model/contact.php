@@ -181,4 +181,14 @@
 
         }
 
+        public function getCalls($id) {
+          $db = new PDOData();
+          
+          $c = $db->doQuery("select * from cuocgoi cg
+              inner join sodienthoai sdt on cg.masdt=sdt.masdt
+              where sdt.malienlac=$id");
+
+          return $c;
+        }
+
     }

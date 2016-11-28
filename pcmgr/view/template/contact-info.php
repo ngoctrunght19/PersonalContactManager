@@ -90,3 +90,7 @@
 	</div>
 
 </div>
+
+<?php
+include("pcmgr/view/template/call-modal.php");
+?>
